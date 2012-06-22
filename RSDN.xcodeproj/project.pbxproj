@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		822CFC4E1593727F00FB355F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC4D1593727F00FB355F /* UIKit.framework */; };
+		822CFC501593727F00FB355F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC4F1593727F00FB355F /* Foundation.framework */; };
+		822CFC521593727F00FB355F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC511593727F00FB355F /* CoreGraphics.framework */; };
+		822CFC581593727F00FB355F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 822CFC561593727F00FB355F /* InfoPlist.strings */; };
+		822CFC5A1593727F00FB355F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC591593727F00FB355F /* main.m */; };
+		822CFC5E1593727F00FB355F /* RSDNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC5D1593727F00FB355F /* RSDNAppDelegate.m */; };
+		822CFC611593727F00FB355F /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822CFC5F1593727F00FB355F /* MainStoryboard_iPhone.storyboard */; };
+		822CFC641593727F00FB355F /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822CFC621593727F00FB355F /* MainStoryboard_iPad.storyboard */; };
+		822CFC671593727F00FB355F /* RSDNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC661593727F00FB355F /* RSDNViewController.m */; };
+		822CFC6F1593727F00FB355F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC6E1593727F00FB355F /* SenTestingKit.framework */; };
+		822CFC701593727F00FB355F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC4D1593727F00FB355F /* UIKit.framework */; };
+		822CFC711593727F00FB355F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC4F1593727F00FB355F /* Foundation.framework */; };
+		822CFC791593727F00FB355F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 822CFC771593727F00FB355F /* InfoPlist.strings */; };
+		822CFC7C1593727F00FB355F /* RSDNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC7B1593727F00FB355F /* RSDNTests.m */; };
+		822CFC88159372E500FB355F /* NSWSDL.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC87159372E500FB355F /* NSWSDL.m */; };
+		822CFC89159372E500FB355F /* NSWSDL.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC87159372E500FB355F /* NSWSDL.m */; };
+		822CFC8C1593742200FB355F /* rsdnClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC8B1593742200FB355F /* rsdnClient.m */; };
+		822CFC8D1593742200FB355F /* rsdnClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC8B1593742200FB355F /* rsdnClient.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		822CFC721593727F00FB355F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 822CFC401593727E00FB355F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 822CFC481593727E00FB355F;
+			remoteInfo = RSDN;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		822CFC491593727F00FB355F /* RSDN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSDN.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		822CFC4D1593727F00FB355F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		822CFC4F1593727F00FB355F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		822CFC511593727F00FB355F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		822CFC551593727F00FB355F /* RSDN-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RSDN-Info.plist"; sourceTree = "<group>"; };
+		822CFC571593727F00FB355F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		822CFC591593727F00FB355F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		822CFC5B1593727F00FB355F /* RSDN-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSDN-Prefix.pch"; sourceTree = "<group>"; };
+		822CFC5C1593727F00FB355F /* RSDNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSDNAppDelegate.h; sourceTree = "<group>"; };
+		822CFC5D1593727F00FB355F /* RSDNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSDNAppDelegate.m; sourceTree = "<group>"; };
+		822CFC601593727F00FB355F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		822CFC631593727F00FB355F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		822CFC651593727F00FB355F /* RSDNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSDNViewController.h; sourceTree = "<group>"; };
+		822CFC661593727F00FB355F /* RSDNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSDNViewController.m; sourceTree = "<group>"; };
+		822CFC6D1593727F00FB355F /* RSDNTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSDNTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		822CFC6E1593727F00FB355F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		822CFC761593727F00FB355F /* RSDNTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RSDNTests-Info.plist"; sourceTree = "<group>"; };
+		822CFC781593727F00FB355F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		822CFC7A1593727F00FB355F /* RSDNTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSDNTests.h; sourceTree = "<group>"; };
+		822CFC7B1593727F00FB355F /* RSDNTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSDNTests.m; sourceTree = "<group>"; };
+		822CFC86159372E500FB355F /* NSWSDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSWSDL.h; sourceTree = "<group>"; };
+		822CFC87159372E500FB355F /* NSWSDL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSWSDL.m; sourceTree = "<group>"; };
+		822CFC8A1593742200FB355F /* rsdnClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsdnClient.h; sourceTree = "<group>"; };
+		822CFC8B1593742200FB355F /* rsdnClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rsdnClient.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		822CFC461593727E00FB355F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822CFC4E1593727F00FB355F /* UIKit.framework in Frameworks */,
+				822CFC501593727F00FB355F /* Foundation.framework in Frameworks */,
+				822CFC521593727F00FB355F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		822CFC691593727F00FB355F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822CFC6F1593727F00FB355F /* SenTestingKit.framework in Frameworks */,
+				822CFC701593727F00FB355F /* UIKit.framework in Frameworks */,
+				822CFC711593727F00FB355F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		822CFC3E1593727E00FB355F = {
+			isa = PBXGroup;
+			children = (
+				822CFC531593727F00FB355F /* RSDN */,
+				822CFC741593727F00FB355F /* RSDNTests */,
+				822CFC4C1593727F00FB355F /* Frameworks */,
+				822CFC4A1593727F00FB355F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		822CFC4A1593727F00FB355F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				822CFC491593727F00FB355F /* RSDN.app */,
+				822CFC6D1593727F00FB355F /* RSDNTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		822CFC4C1593727F00FB355F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				822CFC4D1593727F00FB355F /* UIKit.framework */,
+				822CFC4F1593727F00FB355F /* Foundation.framework */,
+				822CFC511593727F00FB355F /* CoreGraphics.framework */,
+				822CFC6E1593727F00FB355F /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		822CFC531593727F00FB355F /* RSDN */ = {
+			isa = PBXGroup;
+			children = (
+				822CFC85159372B600FB355F /* WebService */,
+				822CFC5C1593727F00FB355F /* RSDNAppDelegate.h */,
+				822CFC5D1593727F00FB355F /* RSDNAppDelegate.m */,
+				822CFC5F1593727F00FB355F /* MainStoryboard_iPhone.storyboard */,
+				822CFC621593727F00FB355F /* MainStoryboard_iPad.storyboard */,
+				822CFC651593727F00FB355F /* RSDNViewController.h */,
+				822CFC661593727F00FB355F /* RSDNViewController.m */,
+				822CFC541593727F00FB355F /* Supporting Files */,
+			);
+			path = RSDN;
+			sourceTree = "<group>";
+		};
+		822CFC541593727F00FB355F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				822CFC551593727F00FB355F /* RSDN-Info.plist */,
+				822CFC561593727F00FB355F /* InfoPlist.strings */,
+				822CFC591593727F00FB355F /* main.m */,
+				822CFC5B1593727F00FB355F /* RSDN-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		822CFC741593727F00FB355F /* RSDNTests */ = {
+			isa = PBXGroup;
+			children = (
+				822CFC7A1593727F00FB355F /* RSDNTests.h */,
+				822CFC7B1593727F00FB355F /* RSDNTests.m */,
+				822CFC751593727F00FB355F /* Supporting Files */,
+			);
+			path = RSDNTests;
+			sourceTree = "<group>";
+		};
+		822CFC751593727F00FB355F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				822CFC761593727F00FB355F /* RSDNTests-Info.plist */,
+				822CFC771593727F00FB355F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		822CFC85159372B600FB355F /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				822CFC8A1593742200FB355F /* rsdnClient.h */,
+				822CFC8B1593742200FB355F /* rsdnClient.m */,
+				822CFC86159372E500FB355F /* NSWSDL.h */,
+				822CFC87159372E500FB355F /* NSWSDL.m */,
+			);
+			name = WebService;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		822CFC481593727E00FB355F /* RSDN */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 822CFC7F1593727F00FB355F /* Build configuration list for PBXNativeTarget "RSDN" */;
+			buildPhases = (
+				822CFC451593727E00FB355F /* Sources */,
+				822CFC461593727E00FB355F /* Frameworks */,
+				822CFC471593727E00FB355F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RSDN;
+			productName = RSDN;
+			productReference = 822CFC491593727F00FB355F /* RSDN.app */;
+			productType = "com.apple.product-type.application";
+		};
+		822CFC6C1593727F00FB355F /* RSDNTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 822CFC821593727F00FB355F /* Build configuration list for PBXNativeTarget "RSDNTests" */;
+			buildPhases = (
+				822CFC681593727F00FB355F /* Sources */,
+				822CFC691593727F00FB355F /* Frameworks */,
+				822CFC6A1593727F00FB355F /* Resources */,
+				822CFC6B1593727F00FB355F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				822CFC731593727F00FB355F /* PBXTargetDependency */,
+			);
+			name = RSDNTests;
+			productName = RSDNTests;
+			productReference = 822CFC6D1593727F00FB355F /* RSDNTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		822CFC401593727E00FB355F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RSDN;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = ikishik.net;
+			};
+			buildConfigurationList = 822CFC431593727E00FB355F /* Build configuration list for PBXProject "RSDN" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 822CFC3E1593727E00FB355F;
+			productRefGroup = 822CFC4A1593727F00FB355F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				822CFC481593727E00FB355F /* RSDN */,
+				822CFC6C1593727F00FB355F /* RSDNTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		822CFC471593727E00FB355F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822CFC581593727F00FB355F /* InfoPlist.strings in Resources */,
+				822CFC611593727F00FB355F /* MainStoryboard_iPhone.storyboard in Resources */,
+				822CFC641593727F00FB355F /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		822CFC6A1593727F00FB355F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822CFC791593727F00FB355F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		822CFC6B1593727F00FB355F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		822CFC451593727E00FB355F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822CFC5A1593727F00FB355F /* main.m in Sources */,
+				822CFC5E1593727F00FB355F /* RSDNAppDelegate.m in Sources */,
+				822CFC671593727F00FB355F /* RSDNViewController.m in Sources */,
+				822CFC88159372E500FB355F /* NSWSDL.m in Sources */,
+				822CFC8C1593742200FB355F /* rsdnClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		822CFC681593727F00FB355F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822CFC7C1593727F00FB355F /* RSDNTests.m in Sources */,
+				822CFC89159372E500FB355F /* NSWSDL.m in Sources */,
+				822CFC8D1593742200FB355F /* rsdnClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		822CFC731593727F00FB355F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 822CFC481593727E00FB355F /* RSDN */;
+			targetProxy = 822CFC721593727F00FB355F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		822CFC561593727F00FB355F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				822CFC571593727F00FB355F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		822CFC5F1593727F00FB355F /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				822CFC601593727F00FB355F /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		822CFC621593727F00FB355F /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				822CFC631593727F00FB355F /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		822CFC771593727F00FB355F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				822CFC781593727F00FB355F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		822CFC7D1593727F00FB355F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		822CFC7E1593727F00FB355F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		822CFC801593727F00FB355F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RSDN/RSDN-Prefix.pch";
+				INFOPLIST_FILE = "RSDN/RSDN-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		822CFC811593727F00FB355F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RSDN/RSDN-Prefix.pch";
+				INFOPLIST_FILE = "RSDN/RSDN-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		822CFC831593727F00FB355F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RSDN.app/RSDN";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RSDN/RSDN-Prefix.pch";
+				INFOPLIST_FILE = "RSDNTests/RSDNTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		822CFC841593727F00FB355F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RSDN.app/RSDN";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RSDN/RSDN-Prefix.pch";
+				INFOPLIST_FILE = "RSDNTests/RSDNTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		822CFC431593727E00FB355F /* Build configuration list for PBXProject "RSDN" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				822CFC7D1593727F00FB355F /* Debug */,
+				822CFC7E1593727F00FB355F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		822CFC7F1593727F00FB355F /* Build configuration list for PBXNativeTarget "RSDN" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				822CFC801593727F00FB355F /* Debug */,
+				822CFC811593727F00FB355F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		822CFC821593727F00FB355F /* Build configuration list for PBXNativeTarget "RSDNTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				822CFC831593727F00FB355F /* Debug */,
+				822CFC841593727F00FB355F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 822CFC401593727E00FB355F /* Project object */;
+}

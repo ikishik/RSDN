@@ -118,8 +118,8 @@
 				82A39CA515CBC0F1008F3C5F /* ForumGroups.h */,
 				82A39CA615CBC0F1008F3C5F /* ForumGroups.m */,
 				82A39CA815CBC0F1008F3C5F /* Forums.h */,
-				8243C0BB15CBDE1C009D7DED /* RSDN.xcdatamodeld */,
 				82A39CA915CBC0F1008F3C5F /* Forums.m */,
+				8243C0BB15CBDE1C009D7DED /* RSDN.xcdatamodeld */,
 				8243C0BF15CBDE37009D7DED /* CoreDataTableViewController.h */,
 				8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */,
 				82A39CAB15CBD704008F3C5F /* ForumGroups+Create.h */,
@@ -133,7 +133,6 @@
 		822CFC3E1593727E00FB355F = {
 			isa = PBXGroup;
 			children = (
-				82A39CB115CBDD23008F3C5F /* CoreData.framework */,
 				822CFC531593727F00FB355F /* RSDN */,
 				822CFC741593727F00FB355F /* RSDNTests */,
 				822CFC4C1593727F00FB355F /* Frameworks */,
@@ -153,6 +152,7 @@
 		822CFC4C1593727F00FB355F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				82A39CB115CBDD23008F3C5F /* CoreData.framework */,
 				822CFC4D1593727F00FB355F /* UIKit.framework */,
 				822CFC4F1593727F00FB355F /* Foundation.framework */,
 				822CFC511593727F00FB355F /* CoreGraphics.framework */,

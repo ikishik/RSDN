@@ -16,7 +16,7 @@
         <relationship name="forumGroup" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ForumGroups" inverseName="forums" inverseEntity="ForumGroups" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ForumGroups" positionX="0" positionY="0" width="128" height="103"/>
-        <element name="Forums" positionX="-227" positionY="-85" width="128" height="148"/>
+        <element name="ForumGroups" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Forums" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

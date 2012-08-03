@@ -32,7 +32,7 @@
 - (void)setupFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ForumGroups"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"sortOrder" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"sortOrder" ascending:YES selector:@selector(compare:)]];
     
     // no predicate because we want ALL the ForumGroups 
     
@@ -123,7 +123,23 @@
     }
     
     
+    ForumGroups *group = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = group.forumGroupName;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d forums", [group.forums count]];
+    
+    
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    ForumGroups *group = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    if ([segue.destinationViewController respondsToSelector:@selector(setGroup:)]) {
+        [segue.destinationViewController performSelector:@selector(setGroup:) withObject:group];
+    }
 }
  
 

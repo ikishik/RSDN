@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ForumGroups.h"
+#import "CoreDataTableViewController.h"
 
-@interface ForumsController : UITableViewController
+@interface ForumsController : CoreDataTableViewController
+
+@property (nonatomic, strong) ForumGroups *group;
 
 @end

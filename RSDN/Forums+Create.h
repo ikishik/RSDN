@@ -7,12 +7,13 @@
 //
 
 #import "Forums.h"
+#import "ForumGroups.h"
 #import "rsdnClient.h"
 
 @interface Forums (Create)
 
 + (Forums *)forumsWithInfo:(JanusForumInfo *)forumInfo
-                            withGroups:(NSMutableDictionary *)grDict
+                            withGroup:(ForumGroups *)group
                 inManagedObjectContext:(NSManagedObjectContext *)context;
 
 

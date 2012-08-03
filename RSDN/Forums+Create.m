@@ -11,7 +11,7 @@
 @implementation Forums (Create)
 
 + (Forums *)forumsWithInfo:(JanusForumInfo *)forumInfo
-                withGroups:(NSMutableDictionary *)grDict
+                withGroup:(ForumGroups *)group
     inManagedObjectContext:(NSManagedObjectContext *)context
 {
     Forums *forum = nil;
@@ -35,7 +35,7 @@
         forum.rated = forumInfo.rated;
         forum.rateLimit = forumInfo.rateLimit;
         forum.shortForumName = forumInfo.shortForumName;
-        forum.forumGroup = [grDict objectForKey:forumInfo.forumGroupId];
+        forum.forumGroup = group;// [grDict objectForKey:forumInfo.forumGroupId];
         
     } else {
         forum = [matches lastObject];

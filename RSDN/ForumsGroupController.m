@@ -8,9 +8,7 @@
 
 #import "ForumsGroupController.h"
 #import "rsdnClient.h"
-#import "ForumGroups.h"
 #import "ForumGroups+Create.h"
-#import "Forums.h"
 #import "Forums+Create.h"
 
 @interface ForumsGroupController ()
@@ -32,7 +30,7 @@
 - (void)setupFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ForumGroups"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"sortOrder" ascending:YES selector:@selector(compare:)]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"sortOrder" ascending:YES]];
     
     // no predicate because we want ALL the ForumGroups 
     
@@ -71,7 +69,8 @@
             
             for (JanusForumInfo *forumInfo in forums)
             {
-                [Forums forumsWithInfo:forumInfo withGroups:grDict inManagedObjectContext:document.managedObjectContext];
+                ForumGroups *group = [grDict objectForKey:forumInfo.forumGroupId];
+                [Forums forumsWithInfo:forumInfo withGroup:group inManagedObjectContext:document.managedObjectContext];
             }
             
             [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];

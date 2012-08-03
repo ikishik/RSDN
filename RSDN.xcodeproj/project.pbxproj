@@ -15,7 +15,6 @@
 		822CFC5E1593727F00FB355F /* RSDNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC5D1593727F00FB355F /* RSDNAppDelegate.m */; };
 		822CFC611593727F00FB355F /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822CFC5F1593727F00FB355F /* MainStoryboard_iPhone.storyboard */; };
 		822CFC641593727F00FB355F /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822CFC621593727F00FB355F /* MainStoryboard_iPad.storyboard */; };
-		822CFC671593727F00FB355F /* RSDNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC661593727F00FB355F /* RSDNViewController.m */; };
 		822CFC6F1593727F00FB355F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC6E1593727F00FB355F /* SenTestingKit.framework */; };
 		822CFC701593727F00FB355F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC4D1593727F00FB355F /* UIKit.framework */; };
 		822CFC711593727F00FB355F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC4F1593727F00FB355F /* Foundation.framework */; };
@@ -25,6 +24,16 @@
 		822CFC89159372E500FB355F /* NSWSDL.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC87159372E500FB355F /* NSWSDL.m */; };
 		822CFC8C1593742200FB355F /* rsdnClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC8B1593742200FB355F /* rsdnClient.m */; };
 		822CFC8D1593742200FB355F /* rsdnClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC8B1593742200FB355F /* rsdnClient.m */; };
+		8243C0BD15CBDE1C009D7DED /* RSDN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8243C0BB15CBDE1C009D7DED /* RSDN.xcdatamodeld */; };
+		8243C0C115CBDE37009D7DED /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */; };
+		8243C0C215CBDE37009D7DED /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */; };
+		82A39CA715CBC0F1008F3C5F /* ForumGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A39CA615CBC0F1008F3C5F /* ForumGroups.m */; };
+		82A39CAA15CBC0F1008F3C5F /* Forums.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A39CA915CBC0F1008F3C5F /* Forums.m */; };
+		82A39CAD15CBD704008F3C5F /* ForumGroups+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A39CAC15CBD704008F3C5F /* ForumGroups+Create.m */; };
+		82A39CB015CBDA25008F3C5F /* Forums+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A39CAF15CBDA25008F3C5F /* Forums+Create.m */; };
+		82A39CB215CBDD23008F3C5F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82A39CB115CBDD23008F3C5F /* CoreData.framework */; };
+		82BDC2CF15BEC40E00CBC816 /* ForumsGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BDC2CE15BEC40E00CBC816 /* ForumsGroupController.m */; };
+		82BDC2D315BEC42D00CBC816 /* ForumsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BDC2D215BEC42D00CBC816 /* ForumsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +59,6 @@
 		822CFC5D1593727F00FB355F /* RSDNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSDNAppDelegate.m; sourceTree = "<group>"; };
 		822CFC601593727F00FB355F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		822CFC631593727F00FB355F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		822CFC651593727F00FB355F /* RSDNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSDNViewController.h; sourceTree = "<group>"; };
-		822CFC661593727F00FB355F /* RSDNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSDNViewController.m; sourceTree = "<group>"; };
 		822CFC6D1593727F00FB355F /* RSDNTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSDNTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		822CFC6E1593727F00FB355F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		822CFC761593727F00FB355F /* RSDNTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RSDNTests-Info.plist"; sourceTree = "<group>"; };
@@ -62,6 +69,22 @@
 		822CFC87159372E500FB355F /* NSWSDL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSWSDL.m; sourceTree = "<group>"; };
 		822CFC8A1593742200FB355F /* rsdnClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsdnClient.h; sourceTree = "<group>"; };
 		822CFC8B1593742200FB355F /* rsdnClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rsdnClient.m; sourceTree = "<group>"; };
+		8243C0BC15CBDE1C009D7DED /* RSDN.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSDN.xcdatamodel; sourceTree = "<group>"; };
+		8243C0BF15CBDE37009D7DED /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		82A39CA515CBC0F1008F3C5F /* ForumGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumGroups.h; sourceTree = "<group>"; };
+		82A39CA615CBC0F1008F3C5F /* ForumGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumGroups.m; sourceTree = "<group>"; };
+		82A39CA815CBC0F1008F3C5F /* Forums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forums.h; sourceTree = "<group>"; };
+		82A39CA915CBC0F1008F3C5F /* Forums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forums.m; sourceTree = "<group>"; };
+		82A39CAB15CBD704008F3C5F /* ForumGroups+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ForumGroups+Create.h"; sourceTree = "<group>"; };
+		82A39CAC15CBD704008F3C5F /* ForumGroups+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ForumGroups+Create.m"; sourceTree = "<group>"; };
+		82A39CAE15CBDA25008F3C5F /* Forums+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Forums+Create.h"; sourceTree = "<group>"; };
+		82A39CAF15CBDA25008F3C5F /* Forums+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Forums+Create.m"; sourceTree = "<group>"; };
+		82A39CB115CBDD23008F3C5F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		82BDC2CD15BEC40E00CBC816 /* ForumsGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumsGroupController.h; sourceTree = "<group>"; };
+		82BDC2CE15BEC40E00CBC816 /* ForumsGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsGroupController.m; sourceTree = "<group>"; };
+		82BDC2D115BEC42D00CBC816 /* ForumsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumsController.h; sourceTree = "<group>"; };
+		82BDC2D215BEC42D00CBC816 /* ForumsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82A39CB215CBDD23008F3C5F /* CoreData.framework in Frameworks */,
 				822CFC4E1593727F00FB355F /* UIKit.framework in Frameworks */,
 				822CFC501593727F00FB355F /* Foundation.framework in Frameworks */,
 				822CFC521593727F00FB355F /* CoreGraphics.framework in Frameworks */,
@@ -88,9 +112,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8226E22715CAC9F000D04486 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				82A39CA515CBC0F1008F3C5F /* ForumGroups.h */,
+				82A39CA615CBC0F1008F3C5F /* ForumGroups.m */,
+				82A39CA815CBC0F1008F3C5F /* Forums.h */,
+				8243C0BB15CBDE1C009D7DED /* RSDN.xcdatamodeld */,
+				82A39CA915CBC0F1008F3C5F /* Forums.m */,
+				8243C0BF15CBDE37009D7DED /* CoreDataTableViewController.h */,
+				8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */,
+				82A39CAB15CBD704008F3C5F /* ForumGroups+Create.h */,
+				82A39CAC15CBD704008F3C5F /* ForumGroups+Create.m */,
+				82A39CAE15CBDA25008F3C5F /* Forums+Create.h */,
+				82A39CAF15CBDA25008F3C5F /* Forums+Create.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		822CFC3E1593727E00FB355F = {
 			isa = PBXGroup;
 			children = (
+				82A39CB115CBDD23008F3C5F /* CoreData.framework */,
 				822CFC531593727F00FB355F /* RSDN */,
 				822CFC741593727F00FB355F /* RSDNTests */,
 				822CFC4C1593727F00FB355F /* Frameworks */,
@@ -121,13 +164,16 @@
 		822CFC531593727F00FB355F /* RSDN */ = {
 			isa = PBXGroup;
 			children = (
+				8226E22715CAC9F000D04486 /* Core Data */,
 				822CFC85159372B600FB355F /* WebService */,
 				822CFC5C1593727F00FB355F /* RSDNAppDelegate.h */,
 				822CFC5D1593727F00FB355F /* RSDNAppDelegate.m */,
 				822CFC5F1593727F00FB355F /* MainStoryboard_iPhone.storyboard */,
 				822CFC621593727F00FB355F /* MainStoryboard_iPad.storyboard */,
-				822CFC651593727F00FB355F /* RSDNViewController.h */,
-				822CFC661593727F00FB355F /* RSDNViewController.m */,
+				82BDC2CD15BEC40E00CBC816 /* ForumsGroupController.h */,
+				82BDC2CE15BEC40E00CBC816 /* ForumsGroupController.m */,
+				82BDC2D115BEC42D00CBC816 /* ForumsController.h */,
+				82BDC2D215BEC42D00CBC816 /* ForumsController.m */,
 				822CFC541593727F00FB355F /* Supporting Files */,
 			);
 			path = RSDN;
@@ -285,9 +331,16 @@
 			files = (
 				822CFC5A1593727F00FB355F /* main.m in Sources */,
 				822CFC5E1593727F00FB355F /* RSDNAppDelegate.m in Sources */,
-				822CFC671593727F00FB355F /* RSDNViewController.m in Sources */,
 				822CFC88159372E500FB355F /* NSWSDL.m in Sources */,
 				822CFC8C1593742200FB355F /* rsdnClient.m in Sources */,
+				82BDC2CF15BEC40E00CBC816 /* ForumsGroupController.m in Sources */,
+				82BDC2D315BEC42D00CBC816 /* ForumsController.m in Sources */,
+				82A39CA715CBC0F1008F3C5F /* ForumGroups.m in Sources */,
+				82A39CAA15CBC0F1008F3C5F /* Forums.m in Sources */,
+				82A39CAD15CBD704008F3C5F /* ForumGroups+Create.m in Sources */,
+				82A39CB015CBDA25008F3C5F /* Forums+Create.m in Sources */,
+				8243C0BD15CBDE1C009D7DED /* RSDN.xcdatamodeld in Sources */,
+				8243C0C115CBDE37009D7DED /* CoreDataTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +351,7 @@
 				822CFC7C1593727F00FB355F /* RSDNTests.m in Sources */,
 				822CFC89159372E500FB355F /* NSWSDL.m in Sources */,
 				822CFC8D1593742200FB355F /* rsdnClient.m in Sources */,
+				8243C0C215CBDE37009D7DED /* CoreDataTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +535,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8243C0BB15CBDE1C009D7DED /* RSDN.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8243C0BC15CBDE1C009D7DED /* RSDN.xcdatamodel */,
+			);
+			currentVersion = 8243C0BC15CBDE1C009D7DED /* RSDN.xcdatamodel */;
+			path = RSDN.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 822CFC401593727E00FB355F /* Project object */;
 }

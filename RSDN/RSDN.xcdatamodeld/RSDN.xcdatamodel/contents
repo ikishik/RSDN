@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12A269" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ForumGroups" representedClassName="ForumGroups" syncable="YES">
+        <attribute name="forumGroupId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="forumGroupName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="forums" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Forums" inverseName="forumGroup" inverseEntity="Forums" syncable="YES"/>
+    </entity>
+    <entity name="Forums" representedClassName="Forums" syncable="YES">
+        <attribute name="forumId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="forumName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inTop" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="rated" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="rateLimit" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="shortForumName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="forumGroup" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ForumGroups" inverseName="forums" inverseEntity="ForumGroups" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ForumGroups" positionX="0" positionY="0" width="128" height="103"/>
+        <element name="Forums" positionX="-227" positionY="-85" width="128" height="148"/>
+    </elements>
+</model>

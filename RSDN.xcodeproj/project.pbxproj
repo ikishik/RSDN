@@ -40,6 +40,7 @@
 		82BDC2CF15BEC40E00CBC816 /* ForumsGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BDC2CE15BEC40E00CBC816 /* ForumsGroupController.m */; };
 		82BDC2D315BEC42D00CBC816 /* ForumsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BDC2D215BEC42D00CBC816 /* ForumsController.m */; };
 		82CCC0A915CD6A970050B151 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CCC0A815CD6A970050B151 /* LoginViewController.m */; };
+		82F1121B15CD8F4D009DC66C /* MIT-LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		82BDC2D215BEC42D00CBC816 /* ForumsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsController.m; sourceTree = "<group>"; };
 		82CCC0A715CD6A970050B151 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		82CCC0A815CD6A970050B151 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MIT-LICENSE.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				822CFC561593727F00FB355F /* InfoPlist.strings */,
 				822CFC591593727F00FB355F /* main.m */,
 				822CFC5B1593727F00FB355F /* RSDN-Prefix.pch */,
+				82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				82042D4415CD3D630017DCCF /* Icon-Small.png in Resources */,
 				82042D4515CD3D630017DCCF /* Icon-Small@2x.png in Resources */,
 				82042D4715CD3D630017DCCF /* Icon@2x.png in Resources */,
+				82F1121B15CD8F4D009DC66C /* MIT-LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

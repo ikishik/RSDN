@@ -10,9 +10,10 @@
 #import "rsdnClient.h"
 #import "ForumGroups+Create.h"
 #import "Forums+Create.h"
+#import "LoginViewController.h"
 
-@interface ForumsGroupController ()
-
+@interface ForumsGroupController () <LoginViewControllerDelegate>
+-(BOOL)CheckLoginAndPassword;
 @end
 
 @implementation ForumsGroupController
@@ -42,14 +43,20 @@
 
 - (void)fetchWebDataIntoDocument:(UIManagedDocument *)document
 {
+    if([self CheckLoginAndPassword])
+    {
     dispatch_queue_t fetchQ = dispatch_queue_create("RSDN fetcher", NULL);
     dispatch_async(fetchQ, ^{
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *login = [defaults objectForKey:@"login"];
+        NSString *password = [defaults objectForKey:@"password"];
         
         JanusAT *ser = JanusAT.service;
         
         ForumRequest *freq = [[ForumRequest alloc] init];
-        freq.userName = @"Demandred";
-        freq.password = @"kishik";
+        freq.userName = login;
+        freq.password = password;
         freq.forumsRowVersion = @"";
         
         NSError *error = nil;
@@ -76,7 +83,12 @@
             [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
         }];
     });
-    dispatch_release(fetchQ);    
+    dispatch_release(fetchQ);
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"LogInSegue" sender:self];   
+    }
 }
 
 - (void)useDocument
@@ -133,12 +145,43 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    ForumGroups *group = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     if ([segue.destinationViewController respondsToSelector:@selector(setGroup:)]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        ForumGroups *group = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [segue.destinationViewController performSelector:@selector(setGroup:) withObject:group];
+    } else if([segue.identifier isEqualToString:@"LogInSegue"]){
+        LoginViewController *lic = (LoginViewController *)segue.destinationViewController;
+        lic.delegate = self;
     }
+}
+
+-(BOOL)CheckLoginAndPassword
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *login = [defaults objectForKey:@"login"];
+    NSString *password = [defaults objectForKey:@"password"];
+    
+    if (!login || !password ||  login.length == 0 || password.length == 0) {
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
+}
+
+-(void)LoginViewController:(LoginViewController *)sender Login:(NSString *)login andPassword:(NSString *)password
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:login forKey:@"login"];
+    [defaults setObject:password forKey:@"password"];
+    
+    [defaults synchronize];
+    
+    [self dismissModalViewControllerAnimated:YES];
+    [self fetchWebDataIntoDocument:self.rsdnDatabase];
 }
  
 

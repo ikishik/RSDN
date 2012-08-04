@@ -11,7 +11,6 @@
 		82042D4315CD3D630017DCCF /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D3D15CD3D630017DCCF /* Icon-Small-50.png */; };
 		82042D4415CD3D630017DCCF /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D3E15CD3D630017DCCF /* Icon-Small.png */; };
 		82042D4515CD3D630017DCCF /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D3F15CD3D630017DCCF /* Icon-Small@2x.png */; };
-		82042D4615CD3D630017DCCF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D4015CD3D630017DCCF /* Icon.png */; };
 		82042D4715CD3D630017DCCF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D4115CD3D630017DCCF /* Icon@2x.png */; };
 		822CFC4E1593727F00FB355F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC4D1593727F00FB355F /* UIKit.framework */; };
 		822CFC501593727F00FB355F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822CFC4F1593727F00FB355F /* Foundation.framework */; };
@@ -40,6 +39,7 @@
 		82A39CB215CBDD23008F3C5F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82A39CB115CBDD23008F3C5F /* CoreData.framework */; };
 		82BDC2CF15BEC40E00CBC816 /* ForumsGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BDC2CE15BEC40E00CBC816 /* ForumsGroupController.m */; };
 		82BDC2D315BEC42D00CBC816 /* ForumsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BDC2D215BEC42D00CBC816 /* ForumsController.m */; };
+		82CCC0A915CD6A970050B151 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CCC0A815CD6A970050B151 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,6 @@
 		82042D3D15CD3D630017DCCF /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		82042D3E15CD3D630017DCCF /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		82042D3F15CD3D630017DCCF /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
-		82042D4015CD3D630017DCCF /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		82042D4115CD3D630017DCCF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		822CFC491593727F00FB355F /* RSDN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSDN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		822CFC4D1593727F00FB355F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -84,6 +83,7 @@
 		8243C0BC15CBDE1C009D7DED /* RSDN.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSDN.xcdatamodel; sourceTree = "<group>"; };
 		8243C0BF15CBDE37009D7DED /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		8246A83115CD4C0A005E2301 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		82A39CA515CBC0F1008F3C5F /* ForumGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumGroups.h; sourceTree = "<group>"; };
 		82A39CA615CBC0F1008F3C5F /* ForumGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumGroups.m; sourceTree = "<group>"; };
 		82A39CA815CBC0F1008F3C5F /* Forums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forums.h; sourceTree = "<group>"; };
@@ -97,6 +97,8 @@
 		82BDC2CE15BEC40E00CBC816 /* ForumsGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsGroupController.m; sourceTree = "<group>"; };
 		82BDC2D115BEC42D00CBC816 /* ForumsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumsController.h; sourceTree = "<group>"; };
 		82BDC2D215BEC42D00CBC816 /* ForumsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsController.m; sourceTree = "<group>"; };
+		82CCC0A715CD6A970050B151 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		82CCC0A815CD6A970050B151 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +133,7 @@
 				82042D3D15CD3D630017DCCF /* Icon-Small-50.png */,
 				82042D3E15CD3D630017DCCF /* Icon-Small.png */,
 				82042D3F15CD3D630017DCCF /* Icon-Small@2x.png */,
-				82042D4015CD3D630017DCCF /* Icon.png */,
+				8246A83115CD4C0A005E2301 /* Icon.png */,
 				82042D4115CD3D630017DCCF /* Icon@2x.png */,
 			);
 			name = Icons;
@@ -189,17 +191,17 @@
 		822CFC531593727F00FB355F /* RSDN */ = {
 			isa = PBXGroup;
 			children = (
-				82042D3A15CD3D460017DCCF /* Icons */,
-				8226E22715CAC9F000D04486 /* Core Data */,
-				822CFC85159372B600FB355F /* WebService */,
-				822CFC5C1593727F00FB355F /* RSDNAppDelegate.h */,
-				822CFC5D1593727F00FB355F /* RSDNAppDelegate.m */,
 				822CFC5F1593727F00FB355F /* MainStoryboard_iPhone.storyboard */,
 				822CFC621593727F00FB355F /* MainStoryboard_iPad.storyboard */,
 				82BDC2CD15BEC40E00CBC816 /* ForumsGroupController.h */,
 				82BDC2CE15BEC40E00CBC816 /* ForumsGroupController.m */,
 				82BDC2D115BEC42D00CBC816 /* ForumsController.h */,
 				82BDC2D215BEC42D00CBC816 /* ForumsController.m */,
+				82CCC0A715CD6A970050B151 /* LoginViewController.h */,
+				82CCC0A815CD6A970050B151 /* LoginViewController.m */,
+				822CFC85159372B600FB355F /* WebService */,
+				8226E22715CAC9F000D04486 /* Core Data */,
+				82042D3A15CD3D460017DCCF /* Icons */,
 				822CFC541593727F00FB355F /* Supporting Files */,
 			);
 			path = RSDN;
@@ -208,6 +210,8 @@
 		822CFC541593727F00FB355F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				822CFC5C1593727F00FB355F /* RSDNAppDelegate.h */,
+				822CFC5D1593727F00FB355F /* RSDNAppDelegate.m */,
 				822CFC551593727F00FB355F /* RSDN-Info.plist */,
 				822CFC561593727F00FB355F /* InfoPlist.strings */,
 				822CFC591593727F00FB355F /* main.m */,
@@ -325,7 +329,6 @@
 				82042D4315CD3D630017DCCF /* Icon-Small-50.png in Resources */,
 				82042D4415CD3D630017DCCF /* Icon-Small.png in Resources */,
 				82042D4515CD3D630017DCCF /* Icon-Small@2x.png in Resources */,
-				82042D4615CD3D630017DCCF /* Icon.png in Resources */,
 				82042D4715CD3D630017DCCF /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +376,7 @@
 				82A39CB015CBDA25008F3C5F /* Forums+Create.m in Sources */,
 				8243C0BD15CBDE1C009D7DED /* RSDN.xcdatamodeld in Sources */,
 				8243C0C115CBDE37009D7DED /* CoreDataTableViewController.m in Sources */,
+				82CCC0A915CD6A970050B151 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

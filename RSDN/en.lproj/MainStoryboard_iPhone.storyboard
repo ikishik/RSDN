@@ -112,7 +112,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7C0-jq-Qnv" kind="relationship" relationship="rootViewController" id="iXa-2N-vA1"/>
+                        <segue destination="7C0-jq-Qnv" kind="relationship" relationship="rootViewController" id="ekC-7Z-a53"/>
                     </connections>
                 </navigationController>
             </objects>
@@ -120,10 +120,13 @@
         </scene>
     </scenes>
     <classes>
-        <class className="ForumsController" superclassName="UITableViewController">
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="ForumsController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ForumsController.h"/>
         </class>
-        <class className="ForumsGroupController" superclassName="UITableViewController">
+        <class className="ForumsGroupController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ForumsGroupController.h"/>
         </class>
     </classes>

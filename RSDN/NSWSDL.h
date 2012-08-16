@@ -77,19 +77,19 @@
 
 @interface NSXMLDocument : NSObject<NSXMLParserDelegate>  {
 	
-	NSXMLElement* __weak rootElement;
-	NSXMLElement* __weak current;
-	NSMutableArray* __weak stack;
-	NSMutableDictionary* __weak lastAttributes;
+	NSXMLElement* rootElement;
+	NSXMLElement* current;
+	NSMutableArray* stack;
+	NSMutableDictionary* lastAttributes;
 }
 
 -(id) initWithXMLString: (NSString*) text options:(NSInteger)validationOption error:(NSError**)pError;
 -(id) initWithData: (NSData*) data options:(NSInteger)validationOption error:(NSError**)pErrpr;
 
-@property (weak, nonatomic) NSXMLElement* rootElement;
-@property (weak, nonatomic) NSXMLElement* current;
-@property (weak, nonatomic) NSMutableArray* stack;
-@property (weak, nonatomic) NSMutableDictionary* lastAttributes;
+@property (strong, nonatomic) NSXMLElement* rootElement;
+@property (strong, nonatomic) NSXMLElement* current;
+@property (strong, nonatomic) NSMutableArray* stack;
+@property (strong, nonatomic) NSMutableDictionary* lastAttributes;
 
 
 -(NSData*) XMLData;
@@ -100,17 +100,17 @@
 
 @interface SoapRequest : NSObject
 {
-	NSXMLDocument* __weak document;
-	NSXMLElement* __weak header;
-	NSXMLElement* __weak method;
+	NSXMLDocument* document;
+	NSXMLElement* header;
+	NSXMLElement* method;
 	NSString* methodName;
 	NSString* soapAction;
 	NSString* rawHttpRequest;
 }
 
-@property (weak, nonatomic) NSXMLDocument* document;
-@property (weak, nonatomic) NSXMLElement* header;
-@property (weak, nonatomic) NSXMLElement* method;
+@property (strong, nonatomic) NSXMLDocument* document;
+@property (strong, nonatomic) NSXMLElement* header;
+@property (strong, nonatomic) NSXMLElement* method;
 @property (nonatomic, copy) NSString* methodName;
 @property (nonatomic, copy) NSString* soapAction;
 @property (nonatomic, copy) NSString* rawHttpRequest;
@@ -123,22 +123,22 @@
 @interface SoapResponse : NSObject
 {
 
-	NSXMLElement* __weak header;
-	NSXMLElement* __weak body;
-	NSXMLElement* __weak response;
-	NSString* __weak faultCode;
-	NSString* __weak faultString;
-    NSString* __weak faultDetail;
-	NSString* __weak rawHttpResponse;
+	NSXMLElement* header;
+	NSXMLElement* body;
+	NSXMLElement* response;
+	NSString* faultCode;
+	NSString* faultString;
+    NSString* faultDetail;
+	NSString* rawHttpResponse;
 }
 
-@property (weak, nonatomic) NSXMLElement* header;
-@property (weak, nonatomic) NSXMLElement* body;
-@property (weak, nonatomic) NSXMLElement* response;
-@property (weak, nonatomic) NSString* faultCode;
-@property (weak, nonatomic) NSString* faultString;
-@property (weak, nonatomic) NSString* faultDetail;
-@property (weak, nonatomic) NSString* rawHttpResponse;
+@property (strong, nonatomic) NSXMLElement* header;
+@property (strong, nonatomic) NSXMLElement* body;
+@property (strong, nonatomic) NSXMLElement* response;
+@property (strong, nonatomic) NSString* faultCode;
+@property (strong, nonatomic) NSString* faultString;
+@property (strong, nonatomic) NSString* faultDetail;
+@property (strong, nonatomic) NSString* rawHttpResponse;
 
 +(SoapResponse*) soapResponse;
 
@@ -151,7 +151,7 @@
 	NSString* __url;
 	NSString* baseUrl;
 	id __unsafe_unretained delegate;
-	NSMutableData* __weak data;
+	NSMutableData* data;
 	SEL responseSelector;
 	
 	NSString* soapAction;
@@ -161,7 +161,7 @@
 @property (nonatomic, copy) NSString* __url;
 @property (nonatomic, copy) NSString* soapAction;
 @property (unsafe_unretained, nonatomic) id delegate;
-@property (weak, nonatomic) NSMutableData* data;
+@property (strong, nonatomic) NSMutableData* data;
 
 
 -(SoapRequest*) buildSoapRequest: (NSString*) methodName withNS:(NSString*)nsUri withAction:(NSString*)action withHeader:(NSString*)header error:(NSError**) pError;

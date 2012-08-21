@@ -7,16 +7,17 @@
         <relationship name="forums" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Forums" inverseName="forumGroup" inverseEntity="Forums" syncable="YES"/>
     </entity>
     <entity name="Forums" representedClassName="Forums" syncable="YES">
-        <attribute name="forumId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="forumId" optional="YES" attributeType="Boolean" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="forumName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="inTop" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="rated" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="rateLimit" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="shortForumName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subscrube" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="forumGroup" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ForumGroups" inverseName="forums" inverseEntity="ForumGroups" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ForumGroups" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Forums" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ForumGroups" positionX="0" positionY="0" width="128" height="103"/>
+        <element name="Forums" positionX="0" positionY="0" width="128" height="163"/>
     </elements>
 </model>

@@ -35,6 +35,7 @@
         forum.rated = forumInfo.rated;
         forum.rateLimit = forumInfo.rateLimit;
         forum.shortForumName = forumInfo.shortForumName;
+        forum.subscrube = [NSNumber numberWithBool:NO];
         forum.forumGroup = group;// [grDict objectForKey:forumInfo.forumGroupId];
         
     } else {

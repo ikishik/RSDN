@@ -2,7 +2,7 @@
 //  Forums.h
 //  RSDN
 //
-//  Created by Igor Kishik on 03.08.12.
+//  Created by Igor Kishik on 21.08.12.
 //  Copyright (c) 2012 ikishik.net. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSNumber * rated;
 @property (nonatomic, retain) NSNumber * rateLimit;
 @property (nonatomic, retain) NSString * shortForumName;
+@property (nonatomic, retain) NSNumber * subscrube;
 @property (nonatomic, retain) ForumGroups *forumGroup;
 
 @end

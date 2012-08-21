@@ -1,0 +1,5 @@
+PODS:
+  - QuickDialog (0.5)
+
+DEPENDENCIES:
+  - QuickDialog

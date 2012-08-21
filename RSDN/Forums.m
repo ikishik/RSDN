@@ -2,7 +2,7 @@
 //  Forums.m
 //  RSDN
 //
-//  Created by Igor Kishik on 03.08.12.
+//  Created by Igor Kishik on 21.08.12.
 //  Copyright (c) 2012 ikishik.net. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @dynamic rated;
 @dynamic rateLimit;
 @dynamic shortForumName;
+@dynamic subscrube;
 @dynamic forumGroup;
 
 @end

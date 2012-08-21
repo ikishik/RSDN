@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E8558B2F3D143FD953073D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F56EF624776F438CA25BB5AE /* libPods.a */; };
 		82042D4215CD3D630017DCCF /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D3C15CD3D630017DCCF /* Icon-72.png */; };
 		82042D4315CD3D630017DCCF /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D3D15CD3D630017DCCF /* Icon-Small-50.png */; };
 		82042D4415CD3D630017DCCF /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D3E15CD3D630017DCCF /* Icon-Small.png */; };
@@ -29,11 +30,13 @@
 		822CFC89159372E500FB355F /* NSWSDL.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC87159372E500FB355F /* NSWSDL.m */; };
 		822CFC8C1593742200FB355F /* rsdnClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC8B1593742200FB355F /* rsdnClient.m */; };
 		822CFC8D1593742200FB355F /* rsdnClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 822CFC8B1593742200FB355F /* rsdnClient.m */; };
+		823F3BE815E3B0AB00E0D208 /* ForumGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 823F3BE715E3B0AB00E0D208 /* ForumGroups.m */; };
+		823F3BEB15E3B0AB00E0D208 /* Forums.m in Sources */ = {isa = PBXBuildFile; fileRef = 823F3BEA15E3B0AB00E0D208 /* Forums.m */; };
+		823F3BF215E3B37B00E0D208 /* ForumsCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 823F3BF115E3B37B00E0D208 /* ForumsCheckViewController.m */; };
+		823F3C2115E3CBD600E0D208 /* ForumsFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 823F3C2015E3CBD600E0D208 /* ForumsFirstViewController.m */; };
 		8243C0BD15CBDE1C009D7DED /* RSDN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8243C0BB15CBDE1C009D7DED /* RSDN.xcdatamodeld */; };
 		8243C0C115CBDE37009D7DED /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */; };
 		8243C0C215CBDE37009D7DED /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */; };
-		82A39CA715CBC0F1008F3C5F /* ForumGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A39CA615CBC0F1008F3C5F /* ForumGroups.m */; };
-		82A39CAA15CBC0F1008F3C5F /* Forums.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A39CA915CBC0F1008F3C5F /* Forums.m */; };
 		82A39CAD15CBD704008F3C5F /* ForumGroups+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A39CAC15CBD704008F3C5F /* ForumGroups+Create.m */; };
 		82A39CB015CBDA25008F3C5F /* Forums+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A39CAF15CBDA25008F3C5F /* Forums+Create.m */; };
 		82A39CB215CBDD23008F3C5F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82A39CB115CBDD23008F3C5F /* CoreData.framework */; };
@@ -54,15 +57,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32140EA8F9F646B3BBE6E330 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		82042D3C15CD3D630017DCCF /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		82042D3D15CD3D630017DCCF /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		82042D3E15CD3D630017DCCF /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		82042D3F15CD3D630017DCCF /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		82042D4115CD3D630017DCCF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		822CFC491593727F00FB355F /* RSDN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSDN.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		822CFC4D1593727F00FB355F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		822CFC4F1593727F00FB355F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		822CFC511593727F00FB355F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		822CFC4D1593727F00FB355F /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		822CFC4F1593727F00FB355F /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		822CFC511593727F00FB355F /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		822CFC551593727F00FB355F /* RSDN-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RSDN-Info.plist"; sourceTree = "<group>"; };
 		822CFC571593727F00FB355F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		822CFC591593727F00FB355F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -81,19 +85,23 @@
 		822CFC87159372E500FB355F /* NSWSDL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSWSDL.m; sourceTree = "<group>"; };
 		822CFC8A1593742200FB355F /* rsdnClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsdnClient.h; sourceTree = "<group>"; };
 		822CFC8B1593742200FB355F /* rsdnClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rsdnClient.m; sourceTree = "<group>"; };
+		823F3BE615E3B0AB00E0D208 /* ForumGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumGroups.h; sourceTree = "<group>"; };
+		823F3BE715E3B0AB00E0D208 /* ForumGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumGroups.m; sourceTree = "<group>"; };
+		823F3BE915E3B0AB00E0D208 /* Forums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forums.h; sourceTree = "<group>"; };
+		823F3BEA15E3B0AB00E0D208 /* Forums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forums.m; sourceTree = "<group>"; };
+		823F3BF015E3B37B00E0D208 /* ForumsCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumsCheckViewController.h; sourceTree = "<group>"; };
+		823F3BF115E3B37B00E0D208 /* ForumsCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsCheckViewController.m; sourceTree = "<group>"; };
+		823F3C1F15E3CBD600E0D208 /* ForumsFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumsFirstViewController.h; sourceTree = "<group>"; };
+		823F3C2015E3CBD600E0D208 /* ForumsFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsFirstViewController.m; sourceTree = "<group>"; };
 		8243C0BC15CBDE1C009D7DED /* RSDN.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSDN.xcdatamodel; sourceTree = "<group>"; };
 		8243C0BF15CBDE37009D7DED /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		8246A83115CD4C0A005E2301 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		82A39CA515CBC0F1008F3C5F /* ForumGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumGroups.h; sourceTree = "<group>"; };
-		82A39CA615CBC0F1008F3C5F /* ForumGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumGroups.m; sourceTree = "<group>"; };
-		82A39CA815CBC0F1008F3C5F /* Forums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forums.h; sourceTree = "<group>"; };
-		82A39CA915CBC0F1008F3C5F /* Forums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forums.m; sourceTree = "<group>"; };
 		82A39CAB15CBD704008F3C5F /* ForumGroups+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ForumGroups+Create.h"; sourceTree = "<group>"; };
 		82A39CAC15CBD704008F3C5F /* ForumGroups+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ForumGroups+Create.m"; sourceTree = "<group>"; };
 		82A39CAE15CBDA25008F3C5F /* Forums+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Forums+Create.h"; sourceTree = "<group>"; };
 		82A39CAF15CBDA25008F3C5F /* Forums+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Forums+Create.m"; sourceTree = "<group>"; };
-		82A39CB115CBDD23008F3C5F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		82A39CB115CBDD23008F3C5F /* CoreData.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		82BDC2CD15BEC40E00CBC816 /* ForumsGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumsGroupController.h; sourceTree = "<group>"; };
 		82BDC2CE15BEC40E00CBC816 /* ForumsGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsGroupController.m; sourceTree = "<group>"; };
 		82BDC2D115BEC42D00CBC816 /* ForumsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumsController.h; sourceTree = "<group>"; };
@@ -101,6 +109,7 @@
 		82CCC0A715CD6A970050B151 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		82CCC0A815CD6A970050B151 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MIT-LICENSE.txt"; sourceTree = "<group>"; };
+		F56EF624776F438CA25BB5AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +121,7 @@
 				822CFC4E1593727F00FB355F /* UIKit.framework in Frameworks */,
 				822CFC501593727F00FB355F /* Foundation.framework in Frameworks */,
 				822CFC521593727F00FB355F /* CoreGraphics.framework in Frameworks */,
+				3E8558B2F3D143FD953073D1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,10 +154,10 @@
 		8226E22715CAC9F000D04486 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				82A39CA515CBC0F1008F3C5F /* ForumGroups.h */,
-				82A39CA615CBC0F1008F3C5F /* ForumGroups.m */,
-				82A39CA815CBC0F1008F3C5F /* Forums.h */,
-				82A39CA915CBC0F1008F3C5F /* Forums.m */,
+				823F3BE615E3B0AB00E0D208 /* ForumGroups.h */,
+				823F3BE715E3B0AB00E0D208 /* ForumGroups.m */,
+				823F3BE915E3B0AB00E0D208 /* Forums.h */,
+				823F3BEA15E3B0AB00E0D208 /* Forums.m */,
 				8243C0BB15CBDE1C009D7DED /* RSDN.xcdatamodeld */,
 				8243C0BF15CBDE37009D7DED /* CoreDataTableViewController.h */,
 				8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */,
@@ -166,6 +176,7 @@
 				822CFC741593727F00FB355F /* RSDNTests */,
 				822CFC4C1593727F00FB355F /* Frameworks */,
 				822CFC4A1593727F00FB355F /* Products */,
+				32140EA8F9F646B3BBE6E330 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,6 +197,7 @@
 				822CFC4F1593727F00FB355F /* Foundation.framework */,
 				822CFC511593727F00FB355F /* CoreGraphics.framework */,
 				822CFC6E1593727F00FB355F /* SenTestingKit.framework */,
+				F56EF624776F438CA25BB5AE /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -195,12 +207,16 @@
 			children = (
 				822CFC5F1593727F00FB355F /* MainStoryboard_iPhone.storyboard */,
 				822CFC621593727F00FB355F /* MainStoryboard_iPad.storyboard */,
+				823F3C1F15E3CBD600E0D208 /* ForumsFirstViewController.h */,
+				823F3C2015E3CBD600E0D208 /* ForumsFirstViewController.m */,
 				82BDC2CD15BEC40E00CBC816 /* ForumsGroupController.h */,
 				82BDC2CE15BEC40E00CBC816 /* ForumsGroupController.m */,
 				82BDC2D115BEC42D00CBC816 /* ForumsController.h */,
 				82BDC2D215BEC42D00CBC816 /* ForumsController.m */,
 				82CCC0A715CD6A970050B151 /* LoginViewController.h */,
 				82CCC0A815CD6A970050B151 /* LoginViewController.m */,
+				823F3BF015E3B37B00E0D208 /* ForumsCheckViewController.h */,
+				823F3BF115E3B37B00E0D208 /* ForumsCheckViewController.m */,
 				822CFC85159372B600FB355F /* WebService */,
 				8226E22715CAC9F000D04486 /* Core Data */,
 				82042D3A15CD3D460017DCCF /* Icons */,
@@ -263,6 +279,7 @@
 				822CFC451593727E00FB355F /* Sources */,
 				822CFC461593727E00FB355F /* Frameworks */,
 				822CFC471593727E00FB355F /* Resources */,
+				FC210A597F454540841E49A0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -361,6 +378,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		FC210A597F454540841E49A0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -374,13 +405,15 @@
 				822CFC8C1593742200FB355F /* rsdnClient.m in Sources */,
 				82BDC2CF15BEC40E00CBC816 /* ForumsGroupController.m in Sources */,
 				82BDC2D315BEC42D00CBC816 /* ForumsController.m in Sources */,
-				82A39CA715CBC0F1008F3C5F /* ForumGroups.m in Sources */,
-				82A39CAA15CBC0F1008F3C5F /* Forums.m in Sources */,
 				82A39CAD15CBD704008F3C5F /* ForumGroups+Create.m in Sources */,
 				82A39CB015CBDA25008F3C5F /* Forums+Create.m in Sources */,
 				8243C0BD15CBDE1C009D7DED /* RSDN.xcdatamodeld in Sources */,
 				8243C0C115CBDE37009D7DED /* CoreDataTableViewController.m in Sources */,
 				82CCC0A915CD6A970050B151 /* LoginViewController.m in Sources */,
+				823F3BE815E3B0AB00E0D208 /* ForumGroups.m in Sources */,
+				823F3BEB15E3B0AB00E0D208 /* Forums.m in Sources */,
+				823F3BF215E3B37B00E0D208 /* ForumsCheckViewController.m in Sources */,
+				823F3C2115E3CBD600E0D208 /* ForumsFirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +523,7 @@
 		};
 		822CFC801593727F00FB355F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32140EA8F9F646B3BBE6E330 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RSDN/RSDN-Prefix.pch";
@@ -501,6 +535,7 @@
 		};
 		822CFC811593727F00FB355F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32140EA8F9F646B3BBE6E330 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RSDN/RSDN-Prefix.pch";

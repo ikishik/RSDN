@@ -17,12 +17,12 @@
 
 @interface ForumsFirstViewController ()<LoginViewControllerDelegate>
 -(BOOL)CheckLoginAndPassword;
+-(void)showForumsCheckList;
 
 @end
 
 @implementation ForumsFirstViewController
 
-@synthesize rsdnDatabase = _rsdnDatabase;
 
 
 
@@ -51,8 +51,7 @@
 
 - (void)fetchWebDataIntoDocument:(UIManagedDocument *)document
 {
-    if([self CheckLoginAndPassword])
-    {
+
         dispatch_queue_t fetchQ = dispatch_queue_create("RSDN fetcher", NULL);
         dispatch_async(fetchQ, ^{
             
@@ -91,21 +90,16 @@
                 
                 [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL succes)
                  {
-                     if(![self CheckForumListinManagedObjectContext:document.managedObjectContext])
+                     if(![self CheckForumList])
                      {
-                         //[self performSegueWithIdentifier:@"CheckForumSegue" sender:self];
-                         [self showForumsCheckListinManagedObjectContext:document.managedObjectContext];
+                         [self showForumsCheckList];
                      }
                  }];
             }];
             
         });
         dispatch_release(fetchQ);
-    }
-    else
-    {
-        [self performSegueWithIdentifier:@"LogInSegue" sender:self];
-    }
+    
 }
 
 - (void)useDocument
@@ -138,7 +132,18 @@
         url = [url URLByAppendingPathComponent:@"Default RSDN Database"];
         
         self.rsdnDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
+        
+        if(![self CheckLoginAndPassword])
+        {
+            [self performSegueWithIdentifier:@"LogInSegue" sender:self];
+        }
+        
     }
+
+    UIBarButtonItem *forumListButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(showForumsCheckList)];
+
+
+    self.navigationItem.rightBarButtonItem = forumListButton;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -164,10 +169,6 @@
     if([segue.identifier isEqualToString:@"LogInSegue"]){
         LoginViewController *lic = (LoginViewController *)segue.destinationViewController;
         lic.delegate = self;
-    }else if([segue.identifier isEqualToString:@"CheckForumSegue"]){
-        //ForumsCheckViewController *fcc = (ForumsCheckViewController *)segue.destinationViewController;
-        //fcc.forums = _forums;
-        //fcc.delegate = self;
     }
 }
 
@@ -186,10 +187,27 @@
     }
 }
 
--(BOOL)CheckForumListinManagedObjectContext:(NSManagedObjectContext *)context;
+
+
+-(void)LoginViewController:(LoginViewController *)sender Login:(NSString *)login andPassword:(NSString *)password
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:login forKey:@"login"];
+    [defaults setObject:password forKey:@"password"];
+    
+    [defaults synchronize];
+    
+    [self dismissModalViewControllerAnimated:YES];
+    [self fetchWebDataIntoDocument:self.rsdnDatabase];
+}
+
+-(BOOL)CheckForumList
+{
+    NSManagedObjectContext *context = self.rsdnDatabase.managedObjectContext;
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Forums"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"shortForumName"
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"forumName"
                                                                                      ascending:YES
                                                                                       selector:@selector(localizedCaseInsensitiveCompare:)]];
     request.predicate = [NSPredicate predicateWithFormat:@"subscrube = YES"];
@@ -206,33 +224,15 @@
     }
 }
 
--(void)LoginViewController:(LoginViewController *)sender Login:(NSString *)login andPassword:(NSString *)password
+-(void)showForumsCheckList
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [defaults setObject:login forKey:@"login"];
-    [defaults setObject:password forKey:@"password"];
+    NSManagedObjectContext *context = self.rsdnDatabase.managedObjectContext;
     
-    [defaults synchronize];
-    
-    [self dismissModalViewControllerAnimated:YES];
-    [self fetchWebDataIntoDocument:self.rsdnDatabase];
-}
-
--(void)ForumsCheckViewController:(ForumsCheckViewController *)sender forums:(NSArray *)forums
-{
-    [self dismissModalViewControllerAnimated:YES];
-    //[self fetchWebDataIntoDocument:self.rsdnDatabase];
-}
-
-
--(void)showForumsCheckListinManagedObjectContext:(NSManagedObjectContext *)context;
-{
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Forums"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"forumName"
                                                                                      ascending:YES
                                                                                       selector:@selector(localizedCaseInsensitiveCompare:)]];
-    //request.predicate = [NSPredicate predicateWithFormat:@"subscrube = YES"];
     
     NSError *error = nil;
     NSArray *matches = [context executeFetchRequest:request error:&error];

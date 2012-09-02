@@ -18,40 +18,39 @@
 
 @implementation ForumsCheckViewController
 
-@synthesize forumsDict = _forumsDict;
-@synthesize context = _context;
 
 -(id)initWithMultiSelectAndForums:(NSArray*)frms inManagedObjectContext:(NSManagedObjectContext *)context
 {
+    self = [super init];
     _context = context;
     _forumsDict = [[NSMutableDictionary alloc] init];
+    
     NSMutableArray *fNames = [[NSMutableArray alloc] init];
     NSMutableArray *fCheck = [[NSMutableArray alloc] init];
+    
     
     for (Forums *forumInfo in frms)
     {
         [fNames addObject:forumInfo.forumName];
-        //if (forumInfo.subscrube != nil && forumInfo.subscrube == [NSNumber numberWithBool:YES] ) {
-        //    [fCheck addObject:[NSNumber numberWithInt: 1]];
-        //}
-        //else
-        //{
-            [fCheck addObject:[NSNumber numberWithInt: 0]];
-
-        //}
         
+        if (forumInfo.subscrube != nil && forumInfo.subscrube == [NSNumber numberWithInt:1] )
+        {
+            [fCheck addObject:forumInfo.forumName];
+        }
         
         [_forumsDict setObject:forumInfo forKey:forumInfo.forumName];
     }
     
+    
+    
     QRootElement *root = [[QRootElement alloc] init];
-    root.grouped = YES;
+    //root.grouped = YES;
     root.title = @"подписка на форумы";
     
     QSelectSection *multipleSelectSection =
-    [[QSelectSection alloc] initWithItems:fNames 
-                          selectedIndexes:fCheck
-                                    title:@"Подписатся на:"];
+    [[QSelectSection alloc] initWithItems:fNames
+                          selectedItems:fCheck
+                                    title:@"Подписаться на:"];
     
     multipleSelectSection.multipleAllowed = YES;
     
@@ -71,17 +70,24 @@
 - (void)onDone
 {
     
-        NSArray *selected = [self.selectSection selectedItems];
+    NSArray *selected = [self.selectSection selectedItems];
     
-        for (NSString *forumName in selected)
-        {
-            Forums *forum = [_forumsDict objectForKey:forumName];
-            forum.subscrube = [NSNumber numberWithBool:YES];
+    for (NSString *key in _forumsDict)
+    {
+        Forums *forum = [_forumsDict objectForKey:key];
+        forum.subscrube = [NSNumber numberWithBool:NO];
+    }
+    
+    
+    for (NSString *forumName in selected)
+    {
+        Forums *forum = [_forumsDict objectForKey:forumName];
+        forum.subscrube = [NSNumber numberWithBool:YES];
 
-        }
+    }
     
-        NSError *error = nil;
-        [_context save:&error];
+        //NSError *error = nil;
+        //[_context save:&error];
 
     
     [[self navigationController] popViewControllerAnimated:YES];

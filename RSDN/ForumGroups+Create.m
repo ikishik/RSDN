@@ -16,7 +16,7 @@
     ForumGroups *group = nil;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ForumGroups"];
-    request.predicate = [NSPredicate predicateWithFormat:@"forumGroupId = %@", groupInfo.forumGroupId];
+    request.predicate = [NSPredicate predicateWithFormat:@"forumGroupId = %@", [NSNumber numberWithInt:groupInfo.forumGroupId]];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"sortOrder" ascending:YES];
     request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     
@@ -28,9 +28,9 @@
     } else if ([matches count] == 0) {
         group = [NSEntityDescription insertNewObjectForEntityForName:@"ForumGroups" inManagedObjectContext:context];
         
-        group.forumGroupId = groupInfo.forumGroupId;
+        group.forumGroupId = [NSNumber numberWithInt:groupInfo.forumGroupId];
         group.forumGroupName = groupInfo.forumGroupName;
-        group.sortOrder = groupInfo.sortOrder;
+        group.sortOrder = [NSNumber numberWithInt:groupInfo.sortOrder];
         
     } else {
         group = [matches lastObject];

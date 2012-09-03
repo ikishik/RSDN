@@ -7,7 +7,7 @@
 //
 
 #import "Messages.h"
-#import "rsdnClient.h"
+#import "JanusMessageInfo.h"
 #import "Forums+FetchRequests.h"
 #import "Users.h"
 

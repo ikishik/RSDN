@@ -7,7 +7,6 @@
 //
 
 #import "ForumsGroupController.h"
-#import "rsdnClient.h"
 #import "ForumGroups+Create.h"
 #import "Forums+Create.h"
 #import "LoginViewController.h"
@@ -43,6 +42,7 @@
 
 - (void)fetchWebDataIntoDocument:(UIManagedDocument *)document
 {
+    /*
     if([self CheckLoginAndPassword])
     {
     dispatch_queue_t fetchQ = dispatch_queue_create("RSDN fetcher", NULL);
@@ -87,8 +87,9 @@
     }
     else
     {
-        [self performSegueWithIdentifier:@"LogInSegue" sender:self];   
+        [self performSegueWithIdentifier:@"LogInSegue" sender:self];
     }
+     */
 }
 
 - (void)useDocument

@@ -10,6 +10,7 @@
 #import "Forums.h"
 #import <QuickDialog/QuickDialog.h>
 
+
 @interface ForumsCheckViewController : QuickDialogController
 
 -(id)initWithMultiSelectAndForums:(NSArray *)frms;

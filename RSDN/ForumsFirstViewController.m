@@ -7,7 +7,6 @@
 //
 
 #import "ForumsFirstViewController.h"
-#import "rsdnClient.h"
 #import "ForumGroups+Create.h"
 #import "Forums+Create.h"
 #import "LoginViewController.h"
@@ -17,9 +16,10 @@
 #import "Forums+FetchRequests.h"
 
 
-@interface ForumsFirstViewController ()<LoginViewControllerDelegate>
+@interface ForumsFirstViewController ()<LoginViewControllerDelegate,SynchronerDelegate>
 -(BOOL)CheckLoginAndPassword;
 -(void)showForumsCheckList;
+-(void)SynchronerFinishSyncForums:(Synchroner *)sender;
 
 @end
 
@@ -110,6 +110,7 @@
     UIBarButtonItem *synchronizeButton = [[UIBarButtonItem alloc] initWithTitle:@"Sync" style:UIBarButtonItemStyleBordered target:self action:@selector(syncData)];
     
     self.navigationItem.leftBarButtonItem = synchronizeButton;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -166,11 +167,12 @@
     
     [self dismissModalViewControllerAnimated:YES];
     
-    [Synchroner syncForumsAndGroupsInManagedObjectContext: self.rsdnDatabase.managedObjectContext];
-    if(![self CheckForumList])
-    {
-        [self showForumsCheckList];
-    }
+    Synchroner *sync = [[Synchroner alloc] initWithManagedObjectContext:self.rsdnDatabase.managedObjectContext];
+    sync.delegate = self;
+    
+    [sync syncForumsAndGroups];
+    
+    
 }
 
 -(BOOL)CheckForumList
@@ -203,9 +205,18 @@
 {
     dispatch_queue_t fetchQ = dispatch_queue_create("RSDN fetcher", NULL);
     dispatch_async(fetchQ, ^{
-        [Synchroner syncForumsAndGroupsInManagedObjectContext:self.rsdnDatabase.managedObjectContext];
+        Synchroner *sync = [[Synchroner alloc] initWithManagedObjectContext:self.rsdnDatabase.managedObjectContext];
+        [sync syncForumsAndGroups];
     });
     dispatch_release(fetchQ);
+}
+
+-(void)SynchronerFinishSyncForums:(Synchroner *)sender
+{
+    if(![self CheckForumList])
+    {
+        [self showForumsCheckList];
+    }
 }
 
 

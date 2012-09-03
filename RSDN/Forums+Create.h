@@ -8,7 +8,7 @@
 
 #import "Forums.h"
 #import "ForumGroups.h"
-#import "rsdnClient.h"
+#import "JanusForumInfo.h"
 
 @interface Forums (Create)
 

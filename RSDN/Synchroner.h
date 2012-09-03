@@ -8,11 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+@class Synchroner;
+
+@protocol SynchronerDelegate <NSObject>
+-(void)SynchronerFinishSyncForums:(Synchroner *)sender;
+@end
+
 @interface Synchroner : NSObject
+@property (nonatomic, weak) id<SynchronerDelegate> delegate;
+@property (nonatomic, strong) NSManagedObjectContext *context;
 
-+(void)syncForumsAndGroupsInManagedObjectContext:(NSManagedObjectContext *)context;
-+(void)syncMessagesInManagedObjectContext:(NSManagedObjectContext *)context;
+-(id)initWithManagedObjectContext:(NSManagedObjectContext *)context;
 
-+(NSString *)GetDataFromUserDefaults:(NSString *)key;
+-(void)syncForumsAndGroups;
+-(void)syncMessages;
+
+-(NSString *)GetStringDataFromUserDefaults:(NSString *)key;
+-(NSData *)GetNSDataFromUserDefaults:(NSString *)key;
 
 @end

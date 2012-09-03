@@ -7,27 +7,55 @@
 //
 
 #import "Synchroner.h"
-#import "rsdnClient.h"
+#import "ForumRequest.h"
+#import "ForumResponse.h"
+#import "JanusAT.h"
 #import "ForumGroups+Create.h"
 #import "Forums+Create.h"
 #import "Forums+FetchRequests.h"
 
 @implementation Synchroner
 
-+(void)syncForumsAndGroupsInManagedObjectContext:(NSManagedObjectContext *)context
+-(id)initWithManagedObjectContext:(NSManagedObjectContext *)context;
+{
+    self = [super init];
+    if (self != nil)
+    {
+        self.context = context;
+    }
+    return self;
+}
+
+-(void)syncForumsAndGroups
 {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *login = [defaults objectForKey:@"login"];
     NSString *password = [defaults objectForKey:@"password"];
         
-    JanusAT *ser = JanusAT.service;
-        
+    
+    JanusAT * service = [JanusAT service];
+	service.logging = YES;
+    
     ForumRequest *freq = [[ForumRequest alloc] init];
     freq.userName = login;
     freq.password = password;
-    freq.forumsRowVersion = [Synchroner GetDataFromUserDefaults:@"forumsRowVersion"];
-        
+    freq.forumsRowVersion = [self GetNSDataFromUserDefaults:@"forumsRowVersion"];
+    
+    [service GetForumList:self action:@selector(GetForumListHandler:) forumRequest: freq];
+    
+    /*
+    UserByIdsRequest *ureq = [[UserByIdsRequest alloc] init];
+    ureq.userName = login;
+    ureq.password = password;
+    ureq.userIds = [NSArray arrayWithObjects:[NSNumber numberWithInteger:16494], nil];//16494
+    
+    NSError *error = nil;
+    UserResponse *uresp = [ser GetUserByIds:ureq error:&error];
+    */    
+    
+    
+    /*
     NSError *error = nil;
     ForumResponse *resp = [ser GetForumList:freq error:&error];
     NSArray *groups = resp.groupList;
@@ -52,10 +80,62 @@
     [defaults setObject:resp.forumsRowVersion forKey:@"forumsRowVersion"];
     
     [defaults synchronize];
+    */
+     
             
 }
 
-+(void)syncMessagesInManagedObjectContext:(NSManagedObjectContext *)context
+- (void) GetForumListHandler: (id) value
+{
+    // Handle errors
+	if([value isKindOfClass:[NSError class]]) {
+		NSLog(@"%@", value);
+		return;
+	}
+    
+	// Handle faults
+	if([value isKindOfClass:[SoapFault class]]) {
+		NSLog(@"%@", value);
+		return;
+	}
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    ForumResponse* resp = (ForumResponse*)value;
+    
+    NSArray *groups = resp.groupList;
+    NSArray *forums = resp.forumList;
+    
+    NSMutableDictionary *grDict = [[NSMutableDictionary alloc] init];
+    
+    for (JanusForumGroupInfo *groupInfo in groups)
+    {
+        ForumGroups *gr = [ForumGroups groupsWithInfo:groupInfo inManagedObjectContext:self.context];
+        [grDict setObject:gr forKey:gr.forumGroupId];
+    }
+    
+    for (JanusForumInfo *forumInfo in forums)
+    {
+        ForumGroups *group = [grDict objectForKey:[NSNumber numberWithInt:forumInfo.forumGroupId]];
+        [Forums forumsWithInfo:forumInfo withGroup:group inManagedObjectContext:self.context];
+        
+    }
+    
+    [defaults setObject:[NSDate date] forKey:@"forumsReqDate"];
+    [defaults setObject:resp.forumsRowVersion forKey:@"forumsRowVersion"];
+    
+    [defaults synchronize];
+    
+    [self.delegate SynchronerFinishSyncForums:self];
+}
+
+-(void)syncMessages
+{
+
+}
+
+/*
+-(void)syncMessages
 {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -74,22 +154,22 @@
         ChangeRequest *creq = [[ChangeRequest alloc] init];
         creq.userName = login;
         creq.password = password;
-        creq.maxOutput = [NSNumber numberWithInteger:1000]; //нужно будет поиграться с значением этого поля
-        creq.messageRowVersion = [Synchroner GetDataFromUserDefaults:@"messageRowVersion"];
-        creq.moderateRowVersion = [Synchroner GetDataFromUserDefaults:@"lastModerateRowVersion"];
-        creq.ratingRowVersion = [Synchroner GetDataFromUserDefaults:@"lastRatingRowVersion"];
+        creq.maxOutput = 1000; //нужно будет поиграться с значением этого поля
+        creq.messageRowVersion = [self GetNSDataFromUserDefaults:@"messageRowVersion"];
+        //creq.moderateRowVersion = [Synchroner GetDataFromUserDefaults:@"lastModerateRowVersion"];
+        //creq.ratingRowVersion = [Synchroner GetDataFromUserDefaults:@"lastRatingRowVersion"];
         
         
         
         NSMutableArray *subscribedForums = [[NSMutableArray alloc] init];
         
-        NSArray *forums = [Forums GetSubscribedForumsWithSort:@"forumName" inManagedObjectContext:context];
+        NSArray *forums = [Forums GetSubscribedForumsWithSort:@"forumName" inManagedObjectContext:self.context];
         
         for (Forums *forum in forums)
         {
             RequestForumInfo *fInfo = [[RequestForumInfo alloc] init];
             
-            fInfo.forumId = forum.forumId;
+            fInfo.forumId =  [forum.forumId intValue];
             [subscribedForums addObject:fInfo];
         }
         
@@ -135,12 +215,19 @@
         [defaults setObject:resp.lastRatingRowVersion forKey:@"lastRatingRowVersion"];
         
         [defaults synchronize];
+         
+    
     }
     
+    UserByIdsRequest *ureq = [[UserByIdsRequest alloc] init];
+    ureq.userName = login;
+    ureq.password = password;
+    ureq.userIds = users;
     
 }
+ */
 
-+(NSString *)GetDataFromUserDefaults:(NSString *)key
+-(NSString *)GetStringDataFromUserDefaults:(NSString *)key
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *retValue = [defaults objectForKey:key];
@@ -148,6 +235,19 @@
     if (!retValue)
     {
         retValue = @"";
+    }
+    
+    return retValue;
+}
+
+-(NSData *)GetNSDataFromUserDefaults:(NSString *)key
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *retValue = [defaults objectForKey:key];
+    
+    if (!retValue)
+    {
+        retValue = [[NSData alloc]init];
     }
     
     return retValue;

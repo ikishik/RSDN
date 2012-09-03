@@ -7,7 +7,7 @@
 //
 
 #import "ForumGroups.h"
-#import "rsdnClient.h"
+#import "JanusForumGroupInfo.h"
 
 @interface ForumGroups (Create)
 + (ForumGroups *)groupsWithInfo:(JanusForumGroupInfo *)groupInfo

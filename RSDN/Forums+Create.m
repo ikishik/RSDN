@@ -17,7 +17,7 @@
     Forums *forum = nil;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Forums"];
-    request.predicate = [NSPredicate predicateWithFormat:@"forumId = %@", forumInfo.forumId];
+    request.predicate = [NSPredicate predicateWithFormat:@"forumId = %@", [NSNumber numberWithInt:forumInfo.forumId]];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"shortForumName" ascending:YES];
     request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     
@@ -29,11 +29,11 @@
     } else if ([matches count] == 0) {
         forum = [NSEntityDescription insertNewObjectForEntityForName:@"Forums" inManagedObjectContext:context];
         
-        forum.forumId = forumInfo.forumId;
+        forum.forumId = [NSNumber numberWithInt:forumInfo.forumId];
         forum.forumName = forumInfo.forumName;
-        forum.inTop = forumInfo.inTop;
-        forum.rated = forumInfo.rated;
-        forum.rateLimit = forumInfo.rateLimit;
+        forum.inTop = [NSNumber numberWithInt:forumInfo.inTop];
+        forum.rated = [NSNumber numberWithInt:forumInfo.rated];
+        forum.rateLimit = [NSNumber numberWithInt:forumInfo.rateLimit];
         forum.shortForumName = forumInfo.shortForumName;
         forum.subscrube = [NSNumber numberWithBool:NO];
         forum.forumGroup = group;// [grDict objectForKey:forumInfo.forumGroupId];

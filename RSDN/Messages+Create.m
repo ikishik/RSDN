@@ -32,7 +32,7 @@
     } else if ([matches count] == 0) {
         msg = [NSEntityDescription insertNewObjectForEntityForName:@"Messages" inManagedObjectContext:context];
         
-        msg.messageId = messageInfo.messageId;
+        msg.messageId = [NSNumber numberWithInt:messageInfo.messageId];
         msg.topic = topic;
         msg.parent = parent;
         msg.forum = forum;
@@ -42,14 +42,14 @@
         msg.messageName = messageInfo.messageName;
         msg.userNick = messageInfo.userNick;
         msg.message = messageInfo.message;
-        msg.articleId = messageInfo.articleId;
+        msg.articleId = [NSNumber numberWithInt:messageInfo.articleId];
         msg.messageDate = messageInfo.messageDate;
         msg.updateDate = messageInfo.updateDate;
         msg.userRole = messageInfo.userRole;
         msg.userTitle = messageInfo.userTitle;
-        msg.userTitleColor = messageInfo.userTitleColor;
+        msg.userTitleColor = [NSNumber numberWithInt:messageInfo.userTitleColor];
         msg.lastModerated = messageInfo.lastModerated;
-        msg.closed = messageInfo.closed;
+        msg.closed = [NSNumber numberWithInt:messageInfo.closed];
         
     } else {
         msg = [matches lastObject];

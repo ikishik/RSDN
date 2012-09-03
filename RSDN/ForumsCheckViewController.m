@@ -19,10 +19,8 @@
 @implementation ForumsCheckViewController
 
 
--(id)initWithMultiSelectAndForums:(NSArray*)frms inManagedObjectContext:(NSManagedObjectContext *)context
+-(id)initWithMultiSelectAndForums:(NSArray*)frms
 {
-    self = [super init];
-    _context = context;
     _forumsDict = [[NSMutableDictionary alloc] init];
     
     NSMutableArray *fNames = [[NSMutableArray alloc] init];

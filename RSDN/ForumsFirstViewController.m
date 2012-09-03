@@ -13,6 +13,8 @@
 #import "LoginViewController.h"
 #import "ForumsCheckViewController.h"
 #import <QuickDialog/QuickDialog.h>
+#import "Synchroner.h"
+#import "Forums+FetchRequests.h"
 
 
 @interface ForumsFirstViewController ()<LoginViewControllerDelegate>
@@ -54,47 +56,9 @@
 
         dispatch_queue_t fetchQ = dispatch_queue_create("RSDN fetcher", NULL);
         dispatch_async(fetchQ, ^{
-            
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            NSString *login = [defaults objectForKey:@"login"];
-            NSString *password = [defaults objectForKey:@"password"];
-            
-            JanusAT *ser = JanusAT.service;
-            
-            ForumRequest *freq = [[ForumRequest alloc] init];
-            freq.userName = login;
-            freq.password = password;
-            freq.forumsRowVersion = @"";
-            
-            NSError *error = nil;
-            ForumResponse *resp = [ser GetForumList:freq error:&error];
-            NSArray *groups = resp.groupList;
-            NSArray *forums = resp.forumList;
-            
             [document.managedObjectContext performBlock:^{
                 
-                NSMutableDictionary *grDict = [[NSMutableDictionary alloc] init];
-                
-                for (JanusForumGroupInfo *groupInfo in groups)
-                {
-                    ForumGroups *gr = [ForumGroups groupsWithInfo:groupInfo inManagedObjectContext:document.managedObjectContext];
-                    [grDict setObject:gr forKey:gr.forumGroupId];
-                }
-                
-                for (JanusForumInfo *forumInfo in forums)
-                {
-                    ForumGroups *group = [grDict objectForKey:forumInfo.forumGroupId];
-                    [Forums forumsWithInfo:forumInfo withGroup:group inManagedObjectContext:document.managedObjectContext];
-                    
-                }
-                
-                [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL succes)
-                 {
-                     if(![self CheckForumList])
-                     {
-                         [self showForumsCheckList];
-                     }
-                 }];
+                [document saveToURL:document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:NULL];
             }];
             
         });
@@ -136,14 +100,16 @@
         if(![self CheckLoginAndPassword])
         {
             [self performSegueWithIdentifier:@"LogInSegue" sender:self];
-        }
-        
+        }        
     }
 
     UIBarButtonItem *forumListButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(showForumsCheckList)];
 
-
     self.navigationItem.rightBarButtonItem = forumListButton;
+    
+    UIBarButtonItem *synchronizeButton = [[UIBarButtonItem alloc] initWithTitle:@"Sync" style:UIBarButtonItemStyleBordered target:self action:@selector(syncData)];
+    
+    self.navigationItem.leftBarButtonItem = synchronizeButton;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -199,21 +165,17 @@
     [defaults synchronize];
     
     [self dismissModalViewControllerAnimated:YES];
-    [self fetchWebDataIntoDocument:self.rsdnDatabase];
+    
+    [Synchroner syncForumsAndGroupsInManagedObjectContext: self.rsdnDatabase.managedObjectContext];
+    if(![self CheckForumList])
+    {
+        [self showForumsCheckList];
+    }
 }
 
 -(BOOL)CheckForumList
 {
-    NSManagedObjectContext *context = self.rsdnDatabase.managedObjectContext;
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Forums"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"forumName"
-                                                                                     ascending:YES
-                                                                                      selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = [NSPredicate predicateWithFormat:@"subscrube = YES"];
-    
-    NSError *error = nil;
-    NSArray *matches = [context executeFetchRequest:request error:&error];
+    NSArray *matches = [Forums GetSubscribedForumsWithSort:@"forumName" inManagedObjectContext:self.rsdnDatabase.managedObjectContext];
     
     if (matches.count == 0) {
         return FALSE;
@@ -227,23 +189,24 @@
 -(void)showForumsCheckList
 {
     
-    NSManagedObjectContext *context = self.rsdnDatabase.managedObjectContext;
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Forums"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"forumName"
-                                                                                     ascending:YES
-                                                                                      selector:@selector(localizedCaseInsensitiveCompare:)]];
-    
-    NSError *error = nil;
-    NSArray *matches = [context executeFetchRequest:request error:&error];
-    
+    NSArray *matches = [Forums GetForumsWithSort:@"forumName" inManagedObjectContext:self.rsdnDatabase.managedObjectContext];
     
     if (matches.count > 0)
     {
-        ForumsCheckViewController *fcController = [[ForumsCheckViewController alloc] initWithMultiSelectAndForums:matches           inManagedObjectContext:context];
-    [[self navigationController] pushViewController:fcController animated:YES];
+        ForumsCheckViewController *fcController = [[ForumsCheckViewController alloc] initWithMultiSelectAndForums:matches];
+        [[self navigationController] pushViewController:fcController animated:YES];
     }
     
 }
+
+-(void)syncData
+{
+    dispatch_queue_t fetchQ = dispatch_queue_create("RSDN fetcher", NULL);
+    dispatch_async(fetchQ, ^{
+        [Synchroner syncForumsAndGroupsInManagedObjectContext:self.rsdnDatabase.managedObjectContext];
+    });
+    dispatch_release(fetchQ);
+}
+
 
 @end

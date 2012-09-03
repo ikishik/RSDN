@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Z1p-qR-1Q9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Z1p-qR-1Q9">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
@@ -9,7 +9,7 @@
         <scene sceneID="N5a-1P-uY4">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrx-u3-ovS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="7C0-jq-Qnv" customClass="ForumsFirstViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ForumsFirstViewController" id="7C0-jq-Qnv" customClass="ForumsFirstViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="X59-eO-aaX">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,52 +54,6 @@
             </objects>
             <point key="canvasLocation" x="441" y="-236"/>
         </scene>
-        <!--Forums Controller-->
-        <scene sceneID="TWU-dr-Poh">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ptk-lw-pXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="Pgv-EG-Z2i" customClass="ForumsController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Yze-aL-ElG">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FCell" textLabel="C5c-em-TdI" detailTextLabel="Sx7-5N-7ob" style="IBUITableViewCellStyleSubtitle" id="Jha-3A-sbl">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C5c-em-TdI">
-                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sx7-5N-7ob">
-                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Pgv-EG-Z2i" id="B1f-WN-hiK"/>
-                            <outlet property="delegate" destination="Pgv-EG-Z2i" id="Lce-kv-kMH"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="nfm-Nf-tkf"/>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="960" y="-236"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="KxY-3t-VmS">
             <objects>
@@ -126,7 +80,7 @@
         <scene sceneID="b95-MB-vLx">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTe-G4-Vfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="6gb-wi-FRl" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="6gb-wi-FRl" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h9o-7x-urW">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -187,7 +141,7 @@
         <scene sceneID="eLl-C6-YjZ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ia1-Xh-1Pi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="bR0-2Q-z8x" customClass="ForumsCheckViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ForumsCheckViewController" id="bR0-2Q-z8x" customClass="ForumsCheckViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BLf-0z-nx0">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,9 +189,6 @@
         </class>
         <class className="ForumsCheckViewController" superclassName="QuickDialogController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ForumsCheckViewController.h"/>
-        </class>
-        <class className="ForumsController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ForumsController.h"/>
         </class>
         <class className="ForumsFirstViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ForumsFirstViewController.h"/>

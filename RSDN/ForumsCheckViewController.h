@@ -12,6 +12,6 @@
 
 @interface ForumsCheckViewController : QuickDialogController
 
--(id)initWithMultiSelectAndForums:(NSArray *)frms inManagedObjectContext:(NSManagedObjectContext *)context;
+-(id)initWithMultiSelectAndForums:(NSArray *)frms;
 
 @end

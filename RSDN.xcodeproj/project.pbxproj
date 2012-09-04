@@ -349,7 +349,7 @@
 		82BDC2D215BEC42D00CBC816 /* ForumsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsController.m; sourceTree = "<group>"; };
 		82CCC0A715CD6A970050B151 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		82CCC0A815CD6A970050B151 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MIT-LICENSE.txt"; sourceTree = "<group>"; };
+		82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "MIT-LICENSE.txt"; path = "RSDN/MIT-LICENSE.txt"; sourceTree = "<group>"; };
 		F56EF624776F438CA25BB5AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -614,6 +614,7 @@
 				822CFC741593727F00FB355F /* RSDNTests */,
 				822CFC4C1593727F00FB355F /* Frameworks */,
 				822CFC4A1593727F00FB355F /* Products */,
+				82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */,
 				32140EA8F9F646B3BBE6E330 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
@@ -674,7 +675,6 @@
 				822CFC561593727F00FB355F /* InfoPlist.strings */,
 				822CFC591593727F00FB355F /* main.m */,
 				822CFC5B1593727F00FB355F /* RSDN-Prefix.pch */,
-				82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

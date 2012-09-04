@@ -109,6 +109,7 @@
 		8243C0BD15CBDE1C009D7DED /* RSDN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8243C0BB15CBDE1C009D7DED /* RSDN.xcdatamodeld */; };
 		8243C0C115CBDE37009D7DED /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */; };
 		8243C0C215CBDE37009D7DED /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */; };
+		8254F3F515F68657006BF99C /* MIT-LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8254F3F415F68657006BF99C /* MIT-LICENSE.txt */; };
 		825CE0F715F50838006D449F /* Synchroner.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CE0F615F50838006D449F /* Synchroner.m */; };
 		8279843015F6074D002E6187 /* Users+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 8279842F15F6074D002E6187 /* Users+Create.m */; };
 		8279843315F60C46002E6187 /* Moderates+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 8279843215F60C46002E6187 /* Moderates+Create.m */; };
@@ -122,7 +123,6 @@
 		82BDC2CF15BEC40E00CBC816 /* ForumsGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BDC2CE15BEC40E00CBC816 /* ForumsGroupController.m */; };
 		82BDC2D315BEC42D00CBC816 /* ForumsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BDC2D215BEC42D00CBC816 /* ForumsController.m */; };
 		82CCC0A915CD6A970050B151 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CCC0A815CD6A970050B151 /* LoginViewController.m */; };
-		82F1121B15CD8F4D009DC66C /* MIT-LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -324,6 +324,7 @@
 		8243C0BF15CBDE37009D7DED /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		8243C0C015CBDE37009D7DED /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		8246A83115CD4C0A005E2301 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		8254F3F415F68657006BF99C /* MIT-LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MIT-LICENSE.txt"; sourceTree = "<group>"; };
 		825CE0F515F50838006D449F /* Synchroner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Synchroner.h; sourceTree = "<group>"; };
 		825CE0F615F50838006D449F /* Synchroner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Synchroner.m; sourceTree = "<group>"; };
 		8279842E15F6074D002E6187 /* Users+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Users+Create.h"; sourceTree = "<group>"; };
@@ -349,7 +350,6 @@
 		82BDC2D215BEC42D00CBC816 /* ForumsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumsController.m; sourceTree = "<group>"; };
 		82CCC0A715CD6A970050B151 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		82CCC0A815CD6A970050B151 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "MIT-LICENSE.txt"; path = "RSDN/MIT-LICENSE.txt"; sourceTree = "<group>"; };
 		F56EF624776F438CA25BB5AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -614,7 +614,7 @@
 				822CFC741593727F00FB355F /* RSDNTests */,
 				822CFC4C1593727F00FB355F /* Frameworks */,
 				822CFC4A1593727F00FB355F /* Products */,
-				82F1121A15CD8F4D009DC66C /* MIT-LICENSE.txt */,
+				8254F3F415F68657006BF99C /* MIT-LICENSE.txt */,
 				32140EA8F9F646B3BBE6E330 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
@@ -779,7 +779,7 @@
 				82042D4415CD3D630017DCCF /* Icon-Small.png in Resources */,
 				82042D4515CD3D630017DCCF /* Icon-Small@2x.png in Resources */,
 				82042D4715CD3D630017DCCF /* Icon@2x.png in Resources */,
-				82F1121B15CD8F4D009DC66C /* MIT-LICENSE.txt in Resources */,
+				8254F3F515F68657006BF99C /* MIT-LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

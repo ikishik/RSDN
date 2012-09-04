@@ -46,8 +46,6 @@
     </entity>
     <entity name="Moderates" representedClassName="Moderates" syncable="YES">
         <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="forumId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="messageId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="forum" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Forums" inverseName="moderates" inverseEntity="Forums" syncable="YES"/>
         <relationship name="message" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Messages" inverseName="moderatesbyMessage" inverseEntity="Messages" syncable="YES"/>
         <relationship name="topic" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Messages" inverseName="moderatesbyTopic" inverseEntity="Messages" syncable="YES"/>
@@ -59,6 +57,7 @@
         <attribute name="userRating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="message" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Messages" inverseName="ratingsbyMessage" inverseEntity="Messages" syncable="YES"/>
         <relationship name="topic" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Messages" inverseName="ratingsbyTopic" inverseEntity="Messages" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="newRelationship" inverseEntity="Users" syncable="YES"/>
     </entity>
     <entity name="Users" representedClassName="Users" syncable="YES">
         <attribute name="homePage" optional="YES" attributeType="String" syncable="YES"/>
@@ -73,13 +72,14 @@
         <attribute name="whereFrom" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Messages" inverseName="user" inverseEntity="Messages" syncable="YES"/>
         <relationship name="moderates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Moderates" inverseName="user" inverseEntity="Moderates" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ratings" inverseName="user" inverseEntity="Ratings" syncable="YES"/>
     </entity>
     <elements>
         <element name="ForumGroups" positionX="0" positionY="0" width="128" height="103"/>
         <element name="Forums" positionX="0" positionY="0" width="128" height="163"/>
         <element name="Messages" positionX="-155" positionY="398" width="128" height="403"/>
-        <element name="Users" positionX="-335" positionY="225" width="128" height="223"/>
-        <element name="Ratings" positionX="108" positionY="171" width="128" height="118"/>
         <element name="Moderates" positionX="-74" positionY="162" width="128" height="148"/>
+        <element name="Ratings" positionX="-333" positionY="72" width="128" height="133"/>
+        <element name="Users" positionX="-335" positionY="225" width="128" height="238"/>
     </elements>
 </model>

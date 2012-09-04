@@ -2,7 +2,7 @@
 //  Moderates.m
 //  RSDN
 //
-//  Created by Igor Kishik on 03.09.12.
+//  Created by Igor Kishik on 04.09.12.
 //  Copyright (c) 2012 ikishik.net. All rights reserved.
 //
 
@@ -14,12 +14,10 @@
 
 @implementation Moderates
 
-@dynamic messageId;
-@dynamic forumId;
 @dynamic createDate;
-@dynamic user;
 @dynamic forum;
-@dynamic topic;
 @dynamic message;
+@dynamic topic;
+@dynamic user;
 
 @end

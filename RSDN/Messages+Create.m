@@ -20,7 +20,7 @@
     Messages *msg = nil;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Messages"];
-    request.predicate = [NSPredicate predicateWithFormat:@"messageId = %@", messageInfo.messageId];
+    request.predicate = [NSPredicate predicateWithFormat:@"messageId = %@", [NSNumber numberWithInt:messageInfo.messageId]];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"messageId" ascending:YES];
     request.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     

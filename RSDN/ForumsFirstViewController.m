@@ -15,6 +15,8 @@
 #import "Synchroner.h"
 #import "Forums+FetchRequests.h"
 
+#import "Soap.h"
+
 
 @interface ForumsFirstViewController ()<LoginViewControllerDelegate,SynchronerDelegate>
 -(BOOL)CheckLoginAndPassword;
@@ -63,6 +65,14 @@
             
         });
         dispatch_release(fetchQ);
+    
+    
+    NSString *nullVersionKey = @"AAAAAAAAAAA=";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[Soap dataFromString:nullVersionKey] forKey:@"forumsRowVersion"];
+    [defaults setObject:[Soap dataFromString:nullVersionKey] forKey:@"messageRowVersion"];
+    [defaults setObject:[Soap dataFromString:nullVersionKey] forKey:@"lastModerateRowVersion"];
+    [defaults setObject:[Soap dataFromString:nullVersionKey] forKey:@"lastRatingRowVersion"];
     
 }
 
@@ -167,11 +177,7 @@
     
     [self dismissModalViewControllerAnimated:YES];
     
-    Synchroner *sync = [[Synchroner alloc] initWithManagedObjectContext:self.rsdnDatabase.managedObjectContext];
-    sync.delegate = self;
-    
-    [sync syncForumsAndGroups];
-    
+    [self syncData];
     
 }
 
@@ -203,12 +209,16 @@
 
 -(void)syncData
 {
-    dispatch_queue_t fetchQ = dispatch_queue_create("RSDN fetcher", NULL);
-    dispatch_async(fetchQ, ^{
-        Synchroner *sync = [[Synchroner alloc] initWithManagedObjectContext:self.rsdnDatabase.managedObjectContext];
-        [sync syncForumsAndGroups];
-    });
-    dispatch_release(fetchQ);
+    //dispatch_queue_t fetchQ = dispatch_queue_create("RSDN fetcher", NULL);
+    //dispatch_async(fetchQ, ^{
+    
+    Synchroner *sync = [[Synchroner alloc] initWithManagedObjectContext:self.rsdnDatabase.managedObjectContext];
+    sync.delegate = self;
+    
+    [sync syncForumsAndGroups];
+    
+    //});
+    //dispatch_release(fetchQ);
 }
 
 -(void)SynchronerFinishSyncForums:(Synchroner *)sender
@@ -216,6 +226,11 @@
     if(![self CheckForumList])
     {
         [self showForumsCheckList];
+    }
+    else
+    {
+        Synchroner *sync = [[Synchroner alloc] initWithManagedObjectContext:self.rsdnDatabase.managedObjectContext];
+        [sync syncMessages];
     }
 }
 

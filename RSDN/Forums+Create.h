@@ -16,5 +16,4 @@
                             withGroup:(ForumGroups *)group
                 inManagedObjectContext:(NSManagedObjectContext *)context;
 
-
 @end

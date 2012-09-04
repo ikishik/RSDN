@@ -23,7 +23,5 @@
 -(void)syncForumsAndGroups;
 -(void)syncMessages;
 
--(NSString *)GetStringDataFromUserDefaults:(NSString *)key;
--(NSData *)GetNSDataFromUserDefaults:(NSString *)key;
 
 @end

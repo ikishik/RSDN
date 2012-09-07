@@ -2,7 +2,7 @@
 //  Forums.h
 //  RSDN
 //
-//  Created by Igor Kishik on 03.09.12.
+//  Created by Igor Kishik on 07.09.12.
 //  Copyright (c) 2012 ikishik.net. All rights reserved.
 //
 
@@ -20,21 +20,22 @@
 @property (nonatomic, retain) NSNumber * rateLimit;
 @property (nonatomic, retain) NSString * shortForumName;
 @property (nonatomic, retain) NSNumber * subscrube;
+@property (nonatomic, retain) NSNumber * isFirstRequest;
 @property (nonatomic, retain) ForumGroups *forumGroup;
-@property (nonatomic, retain) NSSet *moderates;
 @property (nonatomic, retain) NSSet *messages;
+@property (nonatomic, retain) NSSet *moderates;
 @end
 
 @interface Forums (CoreDataGeneratedAccessors)
-
-- (void)addModeratesObject:(Moderates *)value;
-- (void)removeModeratesObject:(Moderates *)value;
-- (void)addModerates:(NSSet *)values;
-- (void)removeModerates:(NSSet *)values;
 
 - (void)addMessagesObject:(Messages *)value;
 - (void)removeMessagesObject:(Messages *)value;
 - (void)addMessages:(NSSet *)values;
 - (void)removeMessages:(NSSet *)values;
+
+- (void)addModeratesObject:(Moderates *)value;
+- (void)removeModeratesObject:(Moderates *)value;
+- (void)addModerates:(NSSet *)values;
+- (void)removeModerates:(NSSet *)values;
 
 @end

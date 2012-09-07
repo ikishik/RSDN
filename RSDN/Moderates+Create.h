@@ -13,7 +13,7 @@
 
 @interface Moderates (Create)
 
-+ (Moderates *)usersWithInfo:(JanusModerateInfo *)moderateInfo
++ (Moderates *)moderatesWithInfo:(JanusModerateInfo *)moderateInfo
                     withUser:(Users *)user
                  withMessage:(Messages *)message
                    withTopic:(Messages *)topic

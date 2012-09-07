@@ -143,10 +143,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-    if([segue.identifier isEqualToString:@"LogInSegue"]){
+    if([segue.identifier isEqualToString:@"LogInSegue"])
+    {
         LoginViewController *lic = (LoginViewController *)segue.destinationViewController;
         lic.delegate = self;
     }
+    else if ([segue.destinationViewController respondsToSelector:@selector(setForums:)])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Forums *forum = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [segue.destinationViewController performSelector:@selector(setForums:) withObject:forum];
+    } 
 }
 
 -(BOOL)CheckLoginAndPassword

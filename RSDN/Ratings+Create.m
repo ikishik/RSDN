@@ -10,7 +10,7 @@
 
 @implementation Ratings (Create)
 
-+ (Ratings *)usersWithInfo:(JanusRatingInfo *)ratingInfo
++ (Ratings *)ratingsWithInfo:(JanusRatingInfo *)ratingInfo
                   withUser:(Users *)user
                withMessage:(Messages *)message
                  withTopic:(Messages *)topic

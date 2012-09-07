@@ -74,6 +74,7 @@
     {
         Forums *forum = [_forumsDict objectForKey:key];
         forum.subscrube = [NSNumber numberWithBool:NO];
+        //forum.isFirstRequest = [NSNumber numberWithBool:YES];
     }
     
     

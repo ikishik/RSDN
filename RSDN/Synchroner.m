@@ -15,6 +15,8 @@
 #import "Forums+FetchRequests.h"
 #import "Users+Create.h"
 #import "Messages+Create.h"
+#import "Ratings+Create.h"
+#import "Moderates+Create.h"
 
 #import "Soap.h"
 
@@ -32,6 +34,8 @@
 -(void)writeMessagesToDB;
 -(Messages *)saveMessage:(JanusMessageInfo *)messageInfo withRemainingDictionary:(NSMutableDictionary *)remainingMessages;
 -(void)saveBrokenMessages;
+-(void)saveRanings;
+-(void)saveModerates;
 
 -(NSString *)GetStringDataFromUserDefaults:(NSString *)key;
 -(NSData *)GetNSDataFromUserDefaults:(NSString *)key;
@@ -93,7 +97,7 @@
     ChangeRequest *creq = [[ChangeRequest alloc] init];
     creq.userName = login;
     creq.password = password;
-    creq.maxOutput = 10; //нужно будет поиграться с значением этого поля
+    creq.maxOutput = 1000; //нужно будет поиграться с значением этого поля
     creq.messageRowVersion = [self GetNSDataFromUserDefaults:@"messageRowVersion"];
     creq.moderateRowVersion = [self GetNSDataFromUserDefaults:@"lastModerateRowVersion"];
     creq.ratingRowVersion = [self GetNSDataFromUserDefaults:@"lastRatingRowVersion"];
@@ -105,20 +109,22 @@
         
     NSMutableArray *subscribedForums = [[NSMutableArray alloc] init];
         
+    
     NSArray *forums = [Forums GetSubscribedForumsWithSort:@"forumName" inManagedObjectContext:self.context];
-        
     for (Forums *forum in forums)
     {
         RequestForumInfo *fInfo = [[RequestForumInfo alloc] init];
             
         fInfo.forumId =  [forum.forumId intValue];
         
-        NSString *isFR = [defaults objectForKey:@"isFirstRequest"];
-        BOOL isF = (isFR == @"NO" ? NO : YES);
+        //NSString *isFR = [defaults objectForKey:@"isFirstRequest"];
+        //BOOL isF = (isFR == @"NO" ? NO : YES);
         
-        fInfo.isFirstRequest = isF;
+        fInfo.isFirstRequest = [forum.isFirstRequest boolValue];
         
         [subscribedForums addObject:fInfo];
+        
+        [self.forums setObject:forum forKey:forum.forumId];
     }
         
     creq.subscribedForums = subscribedForums;
@@ -128,14 +134,11 @@
 
 -(void)writeMessagesToDB
 {
-    NSArray *forums = [Forums GetSubscribedForumsWithSort:@"forumName" inManagedObjectContext:self.context];
-    for (Forums *forum in forums)
-    {
-        [self.forums setObject:forum forKey:forum.forumId];
-    }
     
     NSMutableDictionary *remainingMessages = [[NSMutableDictionary alloc] init];
     
+    /*
+    //сначала сохраняем топики, позже нужно будет переделать алгоритм так что бы это не требовалось
     for (NSNumber *msgKey in self.messages)
     {
         JanusMessageInfo *msg = [self.messages objectForKey:msgKey];
@@ -156,6 +159,8 @@
     
     self.messages = [remainingMessages mutableCopy];
     remainingMessages = [[NSMutableDictionary alloc] init];
+    */
+     
     self.brokenMessages = [[NSMutableArray alloc] init];
     
     for (NSNumber *msgKey in self.messages)
@@ -169,6 +174,11 @@
     if (self.brokenMessages && self.brokenMessages.count > 0)
     {
         [self saveBrokenMessages];
+    }
+    else
+    {
+        [self saveRanings];
+        [self saveModerates];
     }
     
 }
@@ -190,29 +200,40 @@
     }
     else
     {
-        Messages *topic = [self.coreMessages objectForKey:[NSNumber numberWithInt:messageInfo.topicId]];
-        JanusMessageInfo *parent = [self.messages objectForKey:[NSNumber numberWithInt:messageInfo.parentId]];
+        Messages *coreTopic = [self.coreMessages objectForKey:[NSNumber numberWithInt:messageInfo.topicId]];
         Messages *coreParent = [self.coreMessages objectForKey:[NSNumber numberWithInt:messageInfo.parentId]];
+        JanusMessageInfo *parent = [self.messages objectForKey:[NSNumber numberWithInt:messageInfo.parentId]];
+        JanusMessageInfo *topic = [self.messages objectForKey:[NSNumber numberWithInt:messageInfo.topicId]];
         
-        if (topic && coreParent)
+        if (coreTopic && coreParent)
         {
             Users *user = [self.coreUsers objectForKey:[NSNumber numberWithInt:messageInfo.userId]];
             Forums *forum = [self.forums objectForKey:[NSNumber numberWithInt:messageInfo.forumId]];
             
-            Messages *message = [Messages messageWithInfo:messageInfo withTopic:topic withParent:coreParent withForum:forum withUser:user inManagedObjectContext:self.context];
+            Messages *message = [Messages messageWithInfo:messageInfo withTopic:coreTopic withParent:coreParent withForum:forum withUser:user inManagedObjectContext:self.context];
             [self.coreMessages setObject:message forKey:message.messageId];
             
             ret = message;
         }
-        else if (parent && topic)
+        else if (parent && (coreTopic || topic))
         {
             Messages *tempParent = [self saveMessage:parent withRemainingDictionary:remainingMessages];
-            if (tempParent)
+            Messages *tempTopic = nil;
+            if(coreTopic)
+            {
+                tempTopic = coreTopic;
+            }
+            else
+            {
+                tempTopic = [self saveMessage:topic withRemainingDictionary:remainingMessages];
+            }
+            
+            if (tempParent && tempTopic)
             {
                 Users *user = [self.coreUsers objectForKey:[NSNumber numberWithInt:messageInfo.userId]];
                 Forums *forum = [self.forums objectForKey:[NSNumber numberWithInt:messageInfo.forumId]];
                 
-                Messages *message = [Messages messageWithInfo:messageInfo withTopic:topic withParent:tempParent withForum:forum withUser:user inManagedObjectContext:self.context];
+                Messages *message = [Messages messageWithInfo:messageInfo withTopic:tempTopic withParent:tempParent withForum:forum withUser:user inManagedObjectContext:self.context];
                 [self.coreMessages setObject:message forKey:message.messageId];
                 
                 ret = message;
@@ -249,6 +270,46 @@
     treq.messageIds = self.brokenMessages;
     
     [service GetTopicByMessage:self action:@selector(GetTopicByMessageHandler:) topicRequest: treq];
+}
+
+-(void)saveRanings
+{
+    for (JanusRatingInfo *ratingInfo in self.rates)
+    {
+        Users *user = [self.coreUsers objectForKey:[NSNumber numberWithInt:ratingInfo.userId]];
+        Messages *message = [self.coreMessages objectForKey:[NSNumber numberWithInt:ratingInfo.messageId]];
+        Messages *topic = [self.coreMessages objectForKey:[NSNumber numberWithInt:ratingInfo.topicId]];
+        
+        if (user && message && topic)
+        {
+            [Ratings ratingsWithInfo:ratingInfo
+                            withUser:user
+                         withMessage:message
+                           withTopic:topic
+              inManagedObjectContext:self.context];
+        }
+    }
+}
+
+-(void)saveModerates
+{
+    for (JanusModerateInfo *moderateInfo in self.moderates)
+    {
+        Users *user = [self.coreUsers objectForKey:[NSNumber numberWithInt:moderateInfo.userId]];
+        Messages *message = [self.coreMessages objectForKey:[NSNumber numberWithInt:moderateInfo.messageId]];
+        Messages *topic = [self.coreMessages objectForKey:[NSNumber numberWithInt:moderateInfo.topicId]];
+        Forums *forum = [self.forums objectForKey:[NSNumber numberWithInt:moderateInfo.forumId]];
+        
+        if (user && message && topic && forum)
+        {
+            [Moderates moderatesWithInfo:moderateInfo
+                                withUser:user
+                             withMessage:message
+                               withTopic:topic
+                               withForum:forum
+                  inManagedObjectContext:self.context];
+        }
+    }
 }
 
 #pragma mark - JanusServer Handlers
@@ -313,9 +374,27 @@
 	}
     
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     
     ChangeResponse* resp = (ChangeResponse*)value;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *login = [defaults objectForKey:@"login"];
+    NSString *password = [defaults objectForKey:@"password"];
+    
+    [defaults setObject:[NSDate date] forKey:@"DataReqDate"];
+    [defaults setObject:resp.lastForumRowVersion forKey:@"messageRowVersion"];
+    [defaults setObject:resp.lastModerateRowVersion forKey:@"lastModerateRowVersion"];
+    [defaults setObject:resp.lastRatingRowVersion forKey:@"lastRatingRowVersion"];
+    
+    for (NSNumber *fKey in self.forums)
+    {
+        Forums *forum = [self.forums objectForKey:fKey];
+        forum.isFirstRequest = [NSNumber numberWithBool:NO];
+    }
+    
+    [defaults synchronize];
     
     //NSString *temp = [Soap getBase64String: resp.lastForumRowVersion];
     //NSString *temp2 = [Soap getBase64String: resp.lastModerateRowVersion];
@@ -331,17 +410,7 @@
         {
             JanusAT *service = JanusAT.service;
             
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            NSString *login = [defaults objectForKey:@"login"];
-            NSString *password = [defaults objectForKey:@"password"];
             
-            [defaults setObject:[NSDate date] forKey:@"DataReqDate"];
-            [defaults setObject:resp.lastForumRowVersion forKey:@"messageRowVersion"];
-            [defaults setObject:resp.lastModerateRowVersion forKey:@"lastModerateRowVersion"];
-            [defaults setObject:resp.lastRatingRowVersion forKey:@"lastRatingRowVersion"];
-            [defaults setObject:@"NO" forKey:@"isFirstRequest"];
-            
-            [defaults synchronize];
             
             UserByIdsRequest *ureq = [[UserByIdsRequest alloc] init];
             ureq.userName = login;
@@ -367,20 +436,14 @@
         for (JanusModerateInfo *moderateInfo in mdrs)
         {
             [self.moderates addObject:moderateInfo];
+            [self.users addObject:[NSNumber numberWithInt:moderateInfo.userId]];
         }
     
         for (JanusRatingInfo *ratingInfo in rts)
         {
             [self.rates addObject:ratingInfo];
+            [self.users addObject:[NSNumber numberWithInt:ratingInfo.userId]];
         }
-        
-        [defaults setObject:[NSDate date] forKey:@"DataReqDate"];
-        [defaults setObject:resp.lastForumRowVersion forKey:@"messageRowVersion"];
-        [defaults setObject:resp.lastModerateRowVersion forKey:@"lastModerateRowVersion"];
-        [defaults setObject:resp.lastRatingRowVersion forKey:@"lastRatingRowVersion"];
-        [defaults setObject:@"NO" forKey:@"isFirstRequest"];
-        
-        [defaults synchronize];
         
         [self syncMessages];
     }
@@ -450,7 +513,7 @@
         [self.users addObject:[NSNumber numberWithInt:messageInfo.userId]];
     }
     
-    /*
+    
     for (JanusModerateInfo *moderateInfo in resp.Moderate)
     {
         [self.moderates addObject:moderateInfo];
@@ -460,7 +523,7 @@
     {
         [self.rates addObject:ratingInfo];
     }
-    */
+    
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *login = [defaults objectForKey:@"login"];

@@ -13,8 +13,9 @@
 		82042D4415CD3D630017DCCF /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D3E15CD3D630017DCCF /* Icon-Small.png */; };
 		82042D4515CD3D630017DCCF /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D3F15CD3D630017DCCF /* Icon-Small@2x.png */; };
 		82042D4715CD3D630017DCCF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82042D4115CD3D630017DCCF /* Icon@2x.png */; };
+		82049CE215F9E5D700E3F103 /* TopicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82049CE115F9E5D700E3F103 /* TopicsViewController.m */; };
+		82049CEA15FA074E00E3F103 /* Forums.m in Sources */ = {isa = PBXBuildFile; fileRef = 82049CE915FA074E00E3F103 /* Forums.m */; };
 		822A824015F4BF8E00ECF9CA /* ForumGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A823F15F4BF8E00ECF9CA /* ForumGroups.m */; };
-		822A824F15F4BF9000ECF9CA /* Forums.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A824E15F4BF9000ECF9CA /* Forums.m */; };
 		822A825215F4C7B000ECF9CA /* Forums+FetchRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A825115F4C7B000ECF9CA /* Forums+FetchRequests.m */; };
 		822A825515F4CCA700ECF9CA /* Messages+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A825415F4CCA700ECF9CA /* Messages+Create.m */; };
 		822A825815F4CF6400ECF9CA /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A825715F4CF6400ECF9CA /* Messages.m */; };
@@ -142,10 +143,12 @@
 		82042D3E15CD3D630017DCCF /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		82042D3F15CD3D630017DCCF /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		82042D4115CD3D630017DCCF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		82049CE015F9E5D700E3F103 /* TopicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicsViewController.h; sourceTree = "<group>"; };
+		82049CE115F9E5D700E3F103 /* TopicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsViewController.m; sourceTree = "<group>"; };
+		82049CE815FA074E00E3F103 /* Forums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forums.h; sourceTree = "<group>"; };
+		82049CE915FA074E00E3F103 /* Forums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forums.m; sourceTree = "<group>"; };
 		822A823E15F4BF8E00ECF9CA /* ForumGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumGroups.h; sourceTree = "<group>"; };
 		822A823F15F4BF8E00ECF9CA /* ForumGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumGroups.m; sourceTree = "<group>"; };
-		822A824D15F4BF9000ECF9CA /* Forums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forums.h; sourceTree = "<group>"; };
-		822A824E15F4BF9000ECF9CA /* Forums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forums.m; sourceTree = "<group>"; };
 		822A825015F4C7B000ECF9CA /* Forums+FetchRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Forums+FetchRequests.h"; sourceTree = "<group>"; };
 		822A825115F4C7B000ECF9CA /* Forums+FetchRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Forums+FetchRequests.m"; sourceTree = "<group>"; };
 		822A825315F4CCA700ECF9CA /* Messages+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Messages+Create.h"; sourceTree = "<group>"; };
@@ -398,10 +401,10 @@
 			isa = PBXGroup;
 			children = (
 				822A823E15F4BF8E00ECF9CA /* ForumGroups.h */,
-				822A824D15F4BF9000ECF9CA /* Forums.h */,
-				822A824E15F4BF9000ECF9CA /* Forums.m */,
 				822A823F15F4BF8E00ECF9CA /* ForumGroups.m */,
 				8243C0BB15CBDE1C009D7DED /* RSDN.xcdatamodeld */,
+				82049CE815FA074E00E3F103 /* Forums.h */,
+				82049CE915FA074E00E3F103 /* Forums.m */,
 				8279843A15F60F3C002E6187 /* Users.h */,
 				8279843B15F60F3C002E6187 /* Users.m */,
 				8279843D15F60F3D002E6187 /* Ratings.h */,
@@ -657,6 +660,8 @@
 				82CCC0A815CD6A970050B151 /* LoginViewController.m */,
 				823F3BF015E3B37B00E0D208 /* ForumsCheckViewController.h */,
 				823F3BF115E3B37B00E0D208 /* ForumsCheckViewController.m */,
+				82049CE015F9E5D700E3F103 /* TopicsViewController.h */,
+				82049CE115F9E5D700E3F103 /* TopicsViewController.m */,
 				822A825A15F4D71E00ECF9CA /* WebService */,
 				8226E22715CAC9F000D04486 /* Core Data */,
 				82042D3A15CD3D460017DCCF /* Icons */,
@@ -840,7 +845,6 @@
 				823F3BF215E3B37B00E0D208 /* ForumsCheckViewController.m in Sources */,
 				823F3C2115E3CBD600E0D208 /* ForumsFirstViewController.m in Sources */,
 				822A824015F4BF8E00ECF9CA /* ForumGroups.m in Sources */,
-				822A824F15F4BF9000ECF9CA /* Forums.m in Sources */,
 				822A825215F4C7B000ECF9CA /* Forums+FetchRequests.m in Sources */,
 				822A825515F4CCA700ECF9CA /* Messages+Create.m in Sources */,
 				822A825815F4CF6400ECF9CA /* Messages.m in Sources */,
@@ -922,6 +926,8 @@
 				8279843915F60E7C002E6187 /* Ratings+Create.m in Sources */,
 				8279843C15F60F3D002E6187 /* Users.m in Sources */,
 				8279843F15F60F3D002E6187 /* Ratings.m in Sources */,
+				82049CE215F9E5D700E3F103 /* TopicsViewController.m in Sources */,
+				82049CEA15FA074E00E3F103 /* Forums.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

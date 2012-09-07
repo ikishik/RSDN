@@ -1,24 +1,23 @@
 //
-//  TopicsViewController.m
+//  MessagesViewController.m
 //  RSDN
 //
 //  Created by Igor Kishik on 07.09.12.
 //  Copyright (c) 2012 ikishik.net. All rights reserved.
 //
 
-#import "TopicsViewController.h"
-#import "Messages.h"
+#import "MessagesViewController.h"
 
-@interface TopicsViewController ()
+@interface MessagesViewController ()
 
 @end
 
-@implementation TopicsViewController
+@implementation MessagesViewController
 
-- (void)setForums:(Forums *)forum
+- (void)setTopic:(Messages *)topic
 {
-    _forum = forum;
-    self.title = forum.forumName;
+    _topic = topic;
+    self.title = topic.subject;
     [self setupFetchedResultsController];
 }
 
@@ -28,10 +27,10 @@
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"messageDate"
                                                                                      ascending:YES
                                                                                       selector:nil]];
-    request.predicate = [NSPredicate predicateWithFormat:@"forum.forumId = %@ AND topic == nil", self.forum.forumId];
+    request.predicate = [NSPredicate predicateWithFormat:@"topic.messageId = %@", self.topic.messageId];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                        managedObjectContext:self.forum.managedObjectContext
+                                                                        managedObjectContext:self.topic.managedObjectContext
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
 }
@@ -39,7 +38,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"TCell";
+    static NSString *CellIdentifier = @"MCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
@@ -49,21 +48,15 @@
     
     Messages *message = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = message.subject;
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:message.messageDate];
+    
+    cell.textLabel.text = dateString;
+    cell.detailTextLabel.text = message.message;
     
     return cell;
     
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    if ([segue.destinationViewController respondsToSelector:@selector(setTopic:)])
-    {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Messages *topic = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [segue.destinationViewController performSelector:@selector(setTopic:) withObject:topic];
-    }
 }
 
 @end

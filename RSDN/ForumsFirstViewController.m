@@ -190,7 +190,7 @@
 
 -(BOOL)CheckForumList
 {
-    NSArray *matches = [Forums GetSubscribedForumsWithSort:@"forumName" inManagedObjectContext:self.rsdnDatabase.managedObjectContext];
+    NSArray *matches = [Forums getSubscribedForumsWithSort:@"forumName" inManagedObjectContext:self.rsdnDatabase.managedObjectContext];
     
     if (matches.count == 0) {
         return FALSE;
@@ -204,7 +204,7 @@
 -(void)showForumsCheckList
 {
     
-    NSArray *matches = [Forums GetForumsWithSort:@"forumName" inManagedObjectContext:self.rsdnDatabase.managedObjectContext];
+    NSArray *matches = [Forums getForumsWithSort:@"forumName" inManagedObjectContext:self.rsdnDatabase.managedObjectContext];
     
     if (matches.count > 0)
     {

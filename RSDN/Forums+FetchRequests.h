@@ -10,7 +10,7 @@
 
 @interface Forums (FetchRequests)
 
-+ (NSArray *)GetForumsWithSort:(NSString *)sort inManagedObjectContext:(NSManagedObjectContext *)context;
-+ (NSArray *)GetSubscribedForumsWithSort:(NSString *)sort inManagedObjectContext:(NSManagedObjectContext *)context;
++ (NSArray *)getForumsWithSort:(NSString *)sort inManagedObjectContext:(NSManagedObjectContext *)context;
++ (NSArray *)getSubscribedForumsWithSort:(NSString *)sort inManagedObjectContext:(NSManagedObjectContext *)context;
 
 @end

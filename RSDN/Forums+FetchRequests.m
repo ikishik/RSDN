@@ -10,7 +10,7 @@
 
 @implementation Forums (FetchRequests)
 
-+ (NSArray *)GetForumsWithSort:(NSString *)sort inManagedObjectContext:(NSManagedObjectContext *)context;
++ (NSArray *)getForumsWithSort:(NSString *)sort inManagedObjectContext:(NSManagedObjectContext *)context;
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Forums"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:sort
@@ -24,7 +24,7 @@
     return matches;
 }
 
-+ (NSArray *)GetSubscribedForumsWithSort:(NSString *)sort inManagedObjectContext:(NSManagedObjectContext *)context;
++ (NSArray *)getSubscribedForumsWithSort:(NSString *)sort inManagedObjectContext:(NSManagedObjectContext *)context;
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Forums"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:sort

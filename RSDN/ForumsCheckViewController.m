@@ -8,6 +8,7 @@
 
 #import "ForumsCheckViewController.h"
 #import "Forums.h"
+#import "Messages+FetchRequests.h"
 
 @interface ForumsCheckViewController ()
 @property (nonatomic, strong) QSelectSection *selectSection;
@@ -69,25 +70,36 @@
 {
     
     NSArray *selected = [self.selectSection selectedItems];
-    
-    for (NSString *key in _forumsDict)
-    {
-        Forums *forum = [_forumsDict objectForKey:key];
-        forum.subscrube = [NSNumber numberWithBool:NO];
-        //forum.isFirstRequest = [NSNumber numberWithBool:YES];
-    }
-    
+    NSMutableDictionary *selectedForums = [[NSMutableDictionary alloc] init];
     
     for (NSString *forumName in selected)
     {
         Forums *forum = [_forumsDict objectForKey:forumName];
-        forum.subscrube = [NSNumber numberWithBool:YES];
-
+        [selectedForums setObject:forum forKey:forum.forumId];
+        
     }
     
-        //NSError *error = nil;
-        //[_context save:&error];
-
+    for (NSString *key in _forumsDict)
+    {
+        Forums *forum = [_forumsDict objectForKey:key];
+        Forums *forumInSelected = [selectedForums objectForKey:forum.forumId];
+        
+        if (forumInSelected)
+        {
+            forum.subscrube = [NSNumber numberWithBool:YES];
+        }
+        else
+        {
+            forum.subscrube = [NSNumber numberWithBool:NO];
+            
+            NSArray *messages = [Messages getMessagesByForums:forum WithSort:@"messageDate" inManagedObjectContext:forum.managedObjectContext];
+            
+            for (Messages *message in messages)
+            {
+                [forum.managedObjectContext deleteObject:message];
+            }
+        }
+    }
     
     [[self navigationController] popViewControllerAnimated:YES];
 }

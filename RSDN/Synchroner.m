@@ -110,7 +110,7 @@
     NSMutableArray *subscribedForums = [[NSMutableArray alloc] init];
         
     
-    NSArray *forums = [Forums GetSubscribedForumsWithSort:@"forumName" inManagedObjectContext:self.context];
+    NSArray *forums = [Forums getSubscribedForumsWithSort:@"forumName" inManagedObjectContext:self.context];
     for (Forums *forum in forums)
     {
         RequestForumInfo *fInfo = [[RequestForumInfo alloc] init];
@@ -406,7 +406,9 @@
         && (resp.nRating == nil || resp.nRating.count == 0)
         )
     {
-        if (self.messages && self.messages.count > 0)
+        if ((self.messages && self.messages.count > 0)
+            || (self.moderates && self.moderates.count > 0)
+            || (self.rates && self.rates.count > 0))
         {
             JanusAT *service = JanusAT.service;
             
